@@ -62,7 +62,7 @@
                         <a href="#contact">Kontakt</a>
                     </li> -->
                     <li>
-                        <a href="#contact"><i class="glyphicon glyphicon-plus"></i>Inzercia</a>
+                        <a href="pages/inzercia.php"><i class="glyphicon glyphicon-plus"></i>Inzercia</a>
                     </li>
 
                 </ul>
@@ -128,37 +128,37 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>1-iz byt/Garzonka</p>
+                                1-iz byt/Garzonka
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>2-iz byt</p>
+                                2-iz byt
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>3-iz byt</p>
+                                3-iz byt
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>4-iz byt</p>
+                                4-iz byt
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-home"></span>
-                                <p>Domy</p>
+                                Domy
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-home"></span>
-                                <p>Haly</p>
+                                Haly
                             </button>
                         </div>
                     </div>
@@ -593,8 +593,6 @@
     <!-- Google API Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL85OyrgDxcrXKAePzPDycPZkC-nilnOc" async defer></script>
     
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
 
