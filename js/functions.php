@@ -6,7 +6,5 @@
  * Time: 19:52
  */
 
-<script>
-v
-</script>
+
 ?>
