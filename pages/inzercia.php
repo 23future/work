@@ -130,7 +130,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="product-chooser-item selected">
-                    <img src="http://renswijnmalen.nl/bootstrap/desktop_mobile.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile and Desktop">
+                    <img src="../img/people.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile and Desktop">
                     <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                         <span class="title">Mobile and Desktop</span>
                         <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
@@ -142,7 +142,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="product-chooser-item">
-                    <img src="http://renswijnmalen.nl/bootstrap/desktop.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Desktop">
+                    <img src="../img/company.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Desktop">
                     <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                         <span class="title">Desktop</span>
                         <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
@@ -182,7 +182,7 @@
 </script>
 
 <!-- Second selection MAP properties selector -->
-<section id="map_section" class="hidden">
+<section  class="hidden">
     <div class="container-fluid">
 
         <div class="col-lg-12">
@@ -329,7 +329,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL85OyrgDxcrXKAePzPDycPZkC-nilnOc" async defer></script>
 
 <script src="../js/cbpAnimatedHeader.js"></script>
-
 <!-- Custom Theme JavaScript -->
 <script src="../js/freelancer.js"></script>
 
