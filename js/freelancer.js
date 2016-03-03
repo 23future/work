@@ -26,6 +26,7 @@ function getLocation() {
            // geocodeLatLng(lat, lng);
         }, function(error) {
             clearTimeout(location_timeout);
+            var x ;
             switch(error.code) {
                 case error.PERMISSION_DENIED:
                     x.innerHTML = "User denied the request for Geolocation."
