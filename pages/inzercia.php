@@ -1,4 +1,4 @@
-<!DOCTYPE hml>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,75 +13,15 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../css/freelancer.css" rel="stylesheet">
+    <!-- CSS file related to this page -->
+    <link href="../css/inzercia.css" rel="stylesheet">
     <!-- Font style -->
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery -->
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-
 </head>
-
-<style>
-    div.clear
-    {
-        clear: both;
-    }
-
-    div.product-chooser{
-
-    }
-
-    div.product-chooser.disabled div.product-chooser-item
-    {
-        zoom: 1;
-        filter: alpha(opacity=60);
-        opacity: 0.6;
-        cursor: default;
-    }
-
-    div.product-chooser div.product-chooser-item{
-        padding: 11px;
-        border-radius: 6px;
-        cursor: pointer;
-        position: relative;
-        border: 1px solid #efefef;
-        margin-bottom: 10px;
-        margin-left: 10px;
-        margin-right: 10x;
-    }
-
-    div.product-chooser div.product-chooser-item.selected{
-        border: 4px solid #18bc9c;
-        background: #efefef;
-        padding: 8px;
-        filter: alpha(opacity=100);
-        opacity: 1;
-    }
-
-    div.product-chooser div.product-chooser-item img{
-        padding: 0;
-    }
-
-    div.product-chooser div.product-chooser-item span.title{
-        display: block;
-        margin: 10px 0 5px 0;
-        font-weight: bold;
-        font-size: 12px;
-    }
-
-    div.product-chooser div.product-chooser-item span.description{
-        font-size: 12px;
-    }
-
-    div.product-chooser div.product-chooser-item input{
-        position: absolute;
-        left: 0;
-        top: 0;
-        visibility:hidden;
-    }
-
-</style>
 
 <body id="page-top" class="index">
 
@@ -106,13 +46,12 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <!-- <li class="page-scroll">
-                     <a href="#portfolio">Mapa</a>
-                 </li> -->
-                <!--
                 <li class="page-scroll">
-                    <a href="#contact">Kontakt</a>
-                </li> -->
+                     <a href="#">Ceny</a>
+                 </li>
+                <li class="page-scroll">
+                    <a href="#">Sluzby Zakaznikom</a>
+                </li>
 
 
             </ul>
@@ -123,66 +62,57 @@
 </nav>
 
 
-<section>
-    <div class="container">
-        <h2>Normal</h2>
-        <div class="row form-group product-chooser">
+<!-- section for About Project -->
+<section id="login" style="background:#efefe9;">
+    <div class="container-fluid">
+        <div class="row" style="height : 130px;">
 
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="product-chooser-item selected">
-                    <img src="../img/people.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile and Desktop">
-                    <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
-                        <span class="title">Mobile and Desktop</span>
-                        <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
-                        <input type="radio" name="product" value="mobile_desktop" checked="checked">
-                    </div>
-                    <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-2">
+                <div class="well">
+                    <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                        <div class="form-group">
+                            <label for="username" class="control-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                            <span class="help-block"></span>
+                        </div>
+                        <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember" id="remember"> Remember login
+                            </label>
+                            <p class="help-block">(if this is a private computer)</p>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                        <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>
+                    </form>
                 </div>
             </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="product-chooser-item">
-                    <img src="../img/company.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Desktop">
-                    <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
-                        <span class="title">Desktop</span>
-                        <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
-                        <input type="radio" name="product" value="desktop">
-                    </div>
-                    <div class="clear"></div>
-                </div>
+            <div class="col-xs-12 col-md-4 col-md-offset-1">
+                <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                <ul class="list-unstyled" style="line-height: 2">
+                    <li><span class="fa fa-check text-success"></span> See all your orders</li>
+                    <li><span class="fa fa-check text-success"></span> Fast re-order</li>
+                    <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+                    <li><span class="fa fa-check text-success"></span> Fast checkout</li>
+                    <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
+                    <li><a href="#add_izerat" data-toggle="modal"><u>Read more</u></a></li>
+                </ul>
+                <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
             </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="product-chooser-item">
-                    <img src="http://renswijnmalen.nl/bootstrap/mobile.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile">
-                    <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
-                        <span class="title">Mobile</span>
-                        <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
-                        <input type="radio" name="product" value="mobile">
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
 
-<script>
-
-    $(function(){
-        $('div.product-chooser').not('.disabled').find('div.product-chooser-item').on('click', function(){
-            $(this).parent().parent().find('div.product-chooser-item').removeClass('selected');
-            $(this).addClass('selected');
-            $(this).find('input[type="radio"]').prop("checked", true);
-
-        });
-    });
-
-</script>
 
 <!-- Second selection MAP properties selector -->
-<section  class="hidden">
+<section id="pravnicka_os" class="hidden">
     <div class="container-fluid">
 
         <div class="col-lg-12">
@@ -248,21 +178,12 @@
 
 </section>
 
-<!-- section for About Project -->
-<section id="step-by-step" style="background:#efefe9;">
-    <div class="container-fluid">
-        <div class="row">
-
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
+<!-- Add inzerat for "fyzicka osoba " Section -->
+<section id="fyzicka_os" class="hidden">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1> Tu bude nieco</h1>
+                <h1> Tu bude nieco s fyzickou osobou</h1>
             </div>
         </div>
     </div>
@@ -271,6 +192,9 @@
 
 
 
+
+
+<!-- up top button for this page -->
 <div id="up_top_btn" class="back-to-top">
     <a class="btn btn-primary" href="#page-top">
         <i class="fa fa-chevron-up"></i>
@@ -322,6 +246,75 @@
         </div>
     </div>
 </footer>
+
+<!-- Modal content , add new inzerat modal pop-up window -->
+<div class="portfolio-modal modal fade" id="add_izerat" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 well well-sm">
+                        <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a>Registrácia!</legend>
+                        <form action="#" method="post" class="form" role="form">
+                            <div class="row">
+                                <div class="col-xs-6 col-md-6">
+                                    <input class="form-control" name="firstname" placeholder="First Name" type="text"
+                                           required autofocus />
+                                </div>
+                                <div class="col-xs-6 col-md-6">
+                                    <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
+                                </div>
+                            </div>
+                            <input class="form-control" name="youremail" placeholder="Your Email" type="email" />
+                            <input class="form-control" name="reenteremail" placeholder="Re-enter Email" type="email" />
+                            <input class="form-control" name="password" placeholder="New Password" type="password" />
+                            <label for="">
+                                Dátum Narodenia</label>
+                            <div class="row">
+                                <div class="col-xs-4 col-md-4">
+                                    <select class="form-control">
+                                        <option value="Month">Mesiac</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-4 col-md-4">
+                                    <select class="form-control">
+                                        <option value="Day">Deň</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-4 col-md-4">
+                                    <select class="form-control">
+                                        <option value="Year">Rok</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
+                                Muž
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
+                                Žena
+                            </label>
+                            <br />
+                            <br />
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                Zaregistruj ma!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 
 <!-- Slider price values -->
 <script src="../js/nouislider.min.js"></script>
