@@ -126,39 +126,39 @@
                 <div class="row">
                     <div class="btn-group btn-group-justified">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-nav">
+                            <button type="button" class="btn btn-nav" >
                                 <span class="glyphicon glyphicon-bed"></span>
-                                1-iz byt/Garzonka
+                                <p>1-iz byt/Garzonka</p>
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-nav" >
+                                <span class="glyphicon glyphicon-bed"></span>
+                                <p>2-iz byt</p>
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                2-iz byt
+                                <p>3-iz byt</p>
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                3-iz byt
-                            </button>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-nav">
-                                <span class="glyphicon glyphicon-bed"></span>
-                                4-iz byt
+                                <p>4-iz byt</p>
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-home"></span>
-                                Domy
+                                <p>Domy</p>
                             </button>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-home"></span>
-                                Haly
+                                <p>Haly</p>
                             </button>
                         </div>
                     </div>
