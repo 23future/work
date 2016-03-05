@@ -20,23 +20,23 @@ function getLocation() {
             console.log("Longitude :" +lng);
             returnedObject["lat"] = lat;
             returnedObject["lng"] = lng;
-
+            return returnedObject;
             // geocodeLatLng(lat, lng);
         }, function(error) {
             clearTimeout(location_timeout);
             var x ;
             switch(error.code) {
                 case error.PERMISSION_DENIED:
-                    x.innerHTML = "User denied the request for Geolocation."
+                    x.innerHTML = "User denied the request for Geolocation.";
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    x.innerHTML = "Location information is unavailable."
+                    x.innerHTML = "Location information is unavailable.";
                     break;
                 case error.TIMEOUT:
-                    x.innerHTML = "The request to get user location timed out."
+                    x.innerHTML = "The request to get user location timed out.";
                     break;
                 case error.UNKNOWN_ERROR:
-                    x.innerHTML = "An unknown error occurred."
+                    x.innerHTML = "An unknown error occurred.";
                     break;
             }
         });
@@ -44,7 +44,7 @@ function getLocation() {
         // Fallback for no geolocation
         console.log("It faliled on , golocation ");
     }
-
+    console.log("vracim spat hodnoty"+ lat + "/ " +lng );
     return returnedObject;
 }
 
@@ -64,19 +64,46 @@ $(function() {
     }
 });
 
+function SubmitAdCreate() {
+    var pos_lat = document.getElementById("ad_position1").value;
+    var pos_lng = document.getElementById("ad_position2").value;
+    var desc = document.getElementById("ad_desc").value;
+    var submit = document.getElementById("ad_submit");
+    //var password = document.getElementById("password").value;
+    //var contact = document.getElementById("contact").value;
+// Returns successful data submission message when the entered information is stored in database.
+    var dataString = 'lat=' + pos_lat +'&lng='+ pos_lng + '&desc=' + desc + '&submit='+ submit ;
+    if (pos_lat == '' || desc == '' ) {
+        swal("Please Fill All Fields");
+    } else {
+// AJAX code to submit form.
+        $.ajax({
+            type: "POST",
+            url: "js/save_data.php",
+            data: dataString,
+            cache: false,
+            success: function(html) {
+                alert(html);
+            }
+        });
+    }
+    return false;
+}
+
 var markersArray = [];
 
 $("#loginForm").submit(function (event) {
-    alert("Handler for .submit() called.");
-    swal("Here's a message!");
-    console.log('Login buttton was submitted');
+     //swal("You pressed button!");
+    //console.log('Login buttton was submitted');
+    //var pom = getLocation();
+
     $('#map_inzercia').removeClass('hidden');
-    console.log("Posuvam dole na $anchor");
+    //console.log("Posuvam dole na "+ pom.lat + "a " + pom.lng);
 
-
-    var myLatLng;
+    //Creating map num#3 for creating
     var map3 = new google.maps.Map(document.getElementById("map_inzercia_select"), {
         center: new google.maps.LatLng(48.158186, 17.130042),
+       // center : new google.maps.LatLng(pom.lat, pom.lng ),
         zoom: 16,
         mapTypeId: 'roadmap'
     });
@@ -84,23 +111,20 @@ $("#loginForm").submit(function (event) {
     google.maps.event.addListener(map3, "rightclick", function (event) {
         var lat = event.latLng.lat();
         var lng = event.latLng.lng();
-        myLatLng = {lat: lat, lng: lng};
         var marker = new google.maps.Marker({
             position: event.latLng, //map Coordinates where user right clicked
             map: map3,
-            draggable:false, //set marker draggable
+            draggable:false, //set off marker draggable
             animation: google.maps.Animation.DROP, //bounce animation
-            title:"Umiestnite poziciu nehnutelnosti",
-            //icon: "http://localhost/google_map/icons/pin_green.png" custom pin icon
+            title:"Umiestnite poziciu nehnutelnosti"
+            //icon: "http://localhost/google_map/icons/pin_green.png" custom pin icon if we would like in future
         });
-        ClearAllMarkersFromMap();
+        ClearAllMarkersFromMap(); //to clean all Markers , make sure all map is clean!
         markersArray.push(marker);
-        document.getElementById('position').value = lat +" / "+ lng;
-        //window.location.href = "inzercia.php?lat=" + lat +"?lng=" + lng;
-        // populate yor box/field with lat, lng
-        //alert("Lat=" + lat + "; Lng=" + lng);
-
-    });
+        //set up position values into Form label to show up for user
+        document.getElementById('ad_position1').value = lat;
+        document.getElementById('ad_position2').value = lng;
+      });
     event.preventDefault();
 
 

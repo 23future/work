@@ -10,19 +10,20 @@
 
     <title>HladamByvanie</title>
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/freelancer.css" rel="stylesheet">
+    <link href="css/freelancer.css" rel="stylesheet">
     <!-- CSS file related to this page -->
-    <link href="../css/inzercia.css" rel="stylesheet">
+    <link href="css/inzercia.css" rel="stylesheet">
     <!-- Font style -->
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery -->
     <!-- Sweet css style for alert's -->
-    <link href="../css/sweet-alert.css" rel="stylesheet">
-    <script src="../js/jquery.js"></script>
+    <link href="css/sweet-alert.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <?php require_once ("js/pull_from_db.php") ?>
 </head>
 
 <body id="page-top" class="index">
@@ -39,7 +40,7 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- <a class="navbar-brand" href="#page-top">Start Bootstrap</a> -->
-            <a href="../index.php" class="pull-left"><img id="img_1" src="../img/logo2_2.png"></a>
+            <a href="index.php" class="pull-left"><img id="img_1" src="img/logo2_2.png"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -211,30 +212,37 @@
         <div class="col-sx-12 col-md-5 col-md-offset-1">
             <div class="row">
                 <div class="form-area">
-                    <form role="form">
+                    <form role="form"  method="POST">
                         <br style="clear:both">
                         <h3 style="margin-bottom: 25px; text-align: center;">Zadaj inzerat</h3>
+                        <div class="col-sx-6 ">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="position" name="name" placeholder="Pozicia Nehnutelnosti" required>
+                            <input type="text" class="form-control" id="ad_position1" name="ad_position1" placeholder="GPS Pozicia Nehnutelnosti" required>
+                        </div>
+                            </div>
+                        <div class="col-sx-6 ">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ad_position2" name="ad_position2" placeholder="GPS Pozicia Nehnutelnosti" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                            <input type="text" class="form-control" id="ad_name" name="ad_name" placeholder="Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                            <input type="text" class="form-control" id="ad_email" name="ad_email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                            <input type="text" class="form-control" id="ad_mobile" name="ad_mobile" placeholder="Mobile Number" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                            <input type="text" class="form-control" id="ad_subject" name="ad_subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                            <textarea class="form-control" type="textarea" id="ad_desc" name="ad_desc" placeholder="Message" maxlength="140" rows="7"></textarea>
                             <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                         </div>
 
-                        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                        <button type="button" id="ad_submit"  onclick="SubmitAdCreate()" name="ad_submit" class="btn btn-primary pull-right">Submit Form</button>
                     </form>
                 </div>
             </div>
@@ -367,17 +375,16 @@
 </div>
 
 
-
 <!-- Google API Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL85OyrgDxcrXKAePzPDycPZkC-nilnOc" async defer></script>
 <!-- Plugin JavaScript -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <!-- Sweet Alert's jquery -->
-<script src="../js/sweet-alert.js"></script>
-<script src="../js/cbpAnimatedHeader.js"></script>
-<script src="../js/classie.js"></script>
+<script src="js/sweet-alert.js"></script>
+<script src="js/cbpAnimatedHeader.js"></script>
+<script src="js/classie.js"></script>
 <!-- Custom JavaScript for Inzercia.php-->
-<script src="../js/inzercia.js"></script>
+<script src="js/inzercia.js"></script>
 
 </body>
 

@@ -285,7 +285,6 @@ $(function() {
 //after click on marker map 1
 $(function() {
         $('body').on('click', '.gm-style-iw a', function(event) {
-            //debugger;
             var $anchor = $(this);
             $('#inzerat_part').removeClass('hidden');
             initMap2();

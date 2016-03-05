@@ -62,7 +62,7 @@
                         <a href="#contact">Kontakt</a>
                     </li> -->
                     <li>
-                        <a href="pages/inzercia.php"><i class="glyphicon glyphicon-plus"></i>Inzercia</a>
+                        <a href="inzercia.php"><i class="glyphicon glyphicon-plus"></i>Inzercia</a>
                     </li>
 
                 </ul>

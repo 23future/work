@@ -57,6 +57,8 @@ function get_posts_from_db() {
 
     return  $a_json;
 }
+
+
 ?>
 
 
