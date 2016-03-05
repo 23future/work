@@ -18,6 +18,8 @@
     <!-- Font style -->
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery -->
+    <!-- Sweet css style for alert's -->
+    <link href="../css/sweet-alert.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
@@ -370,6 +372,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL85OyrgDxcrXKAePzPDycPZkC-nilnOc" async defer></script>
 <!-- Plugin JavaScript -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<!-- Sweet Alert's jquery -->
+<script src="../js/sweet-alert.js"></script>
 <script src="../js/cbpAnimatedHeader.js"></script>
 <script src="../js/classie.js"></script>
 <!-- Custom JavaScript for Inzercia.php-->

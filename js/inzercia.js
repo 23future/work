@@ -68,6 +68,7 @@ var markersArray = [];
 
 $("#loginForm").submit(function (event) {
     alert("Handler for .submit() called.");
+    swal("Here's a message!");
     console.log('Login buttton was submitted');
     $('#map_inzercia').removeClass('hidden');
     console.log("Posuvam dole na $anchor");
