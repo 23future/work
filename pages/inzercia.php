@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- <a class="navbar-brand" href="#page-top">Start Bootstrap</a> -->
-            <a href="#" class="pull-left"><img id="img_1" src="../img/logo2_2.png"></a>
+            <a href="../index.php" class="pull-left"><img id="img_1" src="../img/logo2_2.png"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,31 +47,30 @@
                     <a href="#page-top"></a>
                 </li>
                 <li class="page-scroll">
-                     <a href="#">Ceny</a>
+                     <a href="#plans">Ceny</a>
                  </li>
                 <li class="page-scroll">
-                    <a href="#">Sluzby Zakaznikom</a>
+                    <a href="#plans">Sluzby Zakaznikom</a>
                 </li>
 
 
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
 </nav>
+<!-- / Navigation end. -->
 
-
-<!-- section for About Project -->
+<!-- section for Login page -->
 <section id="login" style="background:#efefe9;">
-    <div class="container-fluid">
-        <div class="row" style="height : 130px;">
+    <div class="container-fluid ">
+        <div class="row hidden-sm hidden-xs" style="height : 240px;">
 
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-4 col-md-offset-2">
                 <div class="well">
-                    <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                    <form id="loginForm" method="POST" action="" novalidate="novalidate">
                         <div class="form-group">
                             <label for="username" class="control-label">Username</label>
                             <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
@@ -87,10 +86,10 @@
                             <label>
                                 <input type="checkbox" name="remember" id="remember"> Remember login
                             </label>
-                            <p class="help-block">(if this is a private computer)</p>
+                            <p class="help-block"></p>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block">Login</button>
-                        <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>
+                        <button type="submit" href="#map_inzercia" class="btn btn-success btn-block">Login</button>
+                        <a href="#map_inzercia" class="btn btn-default btn-block">Help to login</a>
                     </form>
                 </div>
             </div>
@@ -104,94 +103,144 @@
                     <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
                     <li><a href="#add_izerat" data-toggle="modal"><u>Read more</u></a></li>
                 </ul>
-                <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                <p><a href="#map_inzercia" class="btn btn-info btn-block">Yes please, register now!</a></p>
             </div>
+        </div>
+        <div class="row hidden-sm hidden-sx" style="height : 130px;">
+
         </div>
     </div>
 </section>
+<!-- section for Login page -->
 
+
+<!-- Section of Services provided of web page  -->
+<section id="plans">
+    <div class="container">
+            <div class="row text-center" style="margin-bottom:70px;" >
+
+                    <h1>Prehľad naších služieb</h1>
+            </div>
+        <div class="row">
+
+            <!-- item -->
+            <div class="col-sm-4 text-center">
+                <div class="panel panel-danger panel-pricing">
+                    <div class="panel-heading">
+                        <i class="fa fa-desktop"></i>
+                        <h3>Plan 1</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <p><strong>FREE</strong></p>
+                    </div>
+                    <ul class="list-group text-center">
+                        <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
+                        <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
+                        <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
+                    </ul>
+                    <div class="panel-footer">
+                        <a class="btn btn-lg btn-block btn-danger" href="#">INFO</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /item -->
+
+            <!-- item -->
+            <div class="col-sm-4 text-center">
+                <div class="panel panel-warning panel-pricing">
+                    <div class="panel-heading">
+                        <i class="fa fa-desktop"></i>
+                        <h3>Plan 2</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <p><strong>FREE</strong></p>
+                    </div>
+                    <ul class="list-group text-center">
+                        <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
+                        <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
+                        <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
+                    </ul>
+                    <div class="panel-footer">
+                        <a class="btn btn-lg btn-block btn-warning" href="#">INFO</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /item -->
+
+            <!-- item -->
+            <div class="col-sx-8 col-sx-offset-2 col-sm-4 text-center">
+                <div class="panel panel-success panel-pricing">
+                    <div class="panel-heading">
+                        <i class="fa fa-desktop"></i>
+                        <h3>Plan 3</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <p><strong>FREE</strong></p>
+                    </div>
+                    <ul class="list-group text-center">
+                        <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
+                        <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
+                        <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
+                    </ul>
+                    <div class="panel-footer">
+                        <a class="btn btn-lg btn-block btn-success" href="#">INFO</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /item -->
+
+        </div>
+    </div>
+</section>
+<!-- /Plans -->
 
 <!-- Second selection MAP properties selector -->
-<section id="pravnicka_os" class="hidden">
+<section id="map_inzercia" class="hidden">
     <div class="container-fluid">
 
-        <div class="col-lg-12">
+        <div class="col-sx-12 col-md-6">
             <div class="row">
-                <div class="btn-group btn-group-justified">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-bed"></span>
-                            <p>1-iz byt/Garzonka</p>
-                        </button>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-bed"></span>
-                            <p>2-iz byt</p>
-                        </button>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-bed"></span>
-                            <p>3-iz byt</p>
-                        </button>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-bed"></span>
-                            <p>4-iz byt</p>
-                        </button>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <p>Domy</p>
-                        </button>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <p>Haly</p>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div id='slider1' class="col-md-3 centered" >
-                    <span id="lower-value" class="example-val">00.00   </span>
-                </div>
-                <div id='slider2' class="col-md-6" >
-                    <div id="nonlinear" class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
-                </div>
-                <div id='slider3' class="col-md-3 centered" >
-                    <span id="upper-value" class="example-val">  500000.00</span>
-                </div>
-            </div>
-            <div class="row">
-                <div id="map_property">
+                <div id="map_inzercia_select">
                 </div>
             </div>
 
         </div>
 
-    </div>
+        <div class="col-sx-12 col-md-5 col-md-offset-1">
+            <div class="row">
+                <div class="form-area">
+                    <form role="form">
+                        <br style="clear:both">
+                        <h3 style="margin-bottom: 25px; text-align: center;">Zadaj inzerat</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="position" name="name" placeholder="Pozicia Nehnutelnosti" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                            <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                        </div>
 
-</section>
-
-<!-- Add inzerat for "fyzicka osoba " Section -->
-<section id="fyzicka_os" class="hidden">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1> Tu bude nieco s fyzickou osobou</h1>
+                        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                    </form>
+                </div>
             </div>
         </div>
+
     </div>
+
 </section>
-
-
-
-
 
 
 <!-- up top button for this page -->
@@ -259,15 +308,15 @@
         <div class="container">
             <div class="well well-sm">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 well well-sm">
-                        <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a>Registrácia!</legend>
-                        <form action="#" method="post" class="form" role="form">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 well well-sm">
+                        <h3><i class="glyphicon glyphicon-globe"></i>Registrácia</h3>
+                        <form id="sign_in_form" action="#" method="post" class="form" role="form">
                             <div class="row">
-                                <div class="col-xs-6 col-md-6">
+                                <div class="col-xs-6 col-md-5">
                                     <input class="form-control" name="firstname" placeholder="First Name" type="text"
                                            required autofocus />
                                 </div>
-                                <div class="col-xs-6 col-md-6">
+                                <div class="col-xs-6 col-md-7">
                                     <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
                                 </div>
                             </div>
@@ -316,14 +365,15 @@
 </div>
 
 
-<!-- Slider price values -->
-<script src="../js/nouislider.min.js"></script>
+
 <!-- Google API Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL85OyrgDxcrXKAePzPDycPZkC-nilnOc" async defer></script>
-
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="../js/cbpAnimatedHeader.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="../js/freelancer.js"></script>
+<script src="../js/classie.js"></script>
+<!-- Custom JavaScript for Inzercia.php-->
+<script src="../js/inzercia.js"></script>
 
 </body>
 

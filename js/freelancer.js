@@ -11,7 +11,7 @@ function getLocation() {
     var returnedObject = {};
 
     if (navigator.geolocation) {
-        var location_timeout = setTimeout("geolocFail()", 5000);
+        var location_timeout = setTimeout("geolocFail()", 10000);
 
         navigator.geolocation.getCurrentPosition(function(position) {
             clearTimeout(location_timeout);
@@ -153,14 +153,14 @@ $(function() {
                     bindInfoWindow(marker, map, infoWindow, html);
                 }
             });
-
+        /*
         google.maps.event.addListener(map, "rightclick", function(event) {
             var lat = event.latLng.lat();
             var lng = event.latLng.lng();
             // populate yor box/field with lat, lng
             alert("Lat=" + lat + "; Lng=" + lng);
         });
-
+        */
         //map.setCenter(new google.maps.LatLng(result.lat, result.lng));
         console.log("Nast. latitude:" + result.lat);
         console.log("NAst. Longitude :" + result.lng);
