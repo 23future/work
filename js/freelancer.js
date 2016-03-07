@@ -108,6 +108,7 @@ $(document).ready(function(){
      return false;
      })
 });
+var gmarkers=[];
 
 // If the arrow on the main front page is pressed , this action will perform:
 $(function() {
@@ -135,7 +136,7 @@ $(function() {
         // Change this depending on the name of your PHP file
             downloadUrl("js/pull_markers.php", function(data) {
                 var xml = data.responseXML;
-                var markers = xml.documentElement.getElementsByTagName("marker");
+                 var markers = xml.documentElement.getElementsByTagName("marker");
                 for (var i = 0; i < markers.length; i++) {
                     var name = markers[i].getAttribute("name");
                     var address = markers[i].getAttribute("address");
@@ -148,8 +149,10 @@ $(function() {
                     var marker = new google.maps.Marker({
                         map: map,
                         position: point,
+                        category : type,
                         icon: icon.icon
                     });
+                    gmarkers.push(marker);
                     bindInfoWindow(marker, map, infoWindow, html);
                 }
             });
@@ -207,7 +210,7 @@ $(function() {
             // Change this depending on the name of your PHP file
             downloadUrl("js/pull_markers.php", function(data) {
                 var xml = data.responseXML;
-                var markers = xml.documentElement.getElementsByTagName("marker");
+                 var markers = xml.documentElement.getElementsByTagName("marker");
                 for (var i = 0; i < markers.length; i++) {
                     var name = markers[i].getAttribute("name");
                     var address = markers[i].getAttribute("address");
@@ -220,8 +223,10 @@ $(function() {
                     var marker = new google.maps.Marker({
                         map: map,
                         position: point,
+                        category : type,
                         icon: icon.icon
                     });
+                    gmarkers.push(marker);
                     bindInfoWindow(marker, map, infoWindow, html);
                 }
             });
@@ -330,6 +335,49 @@ $(function() {
         $('a[title]').tooltip();
     });
 
+    //Filter Markers based on their category : 1iz, 2iz , 3iz , 4iz , domy, haly
+    filter_markers= function (category){
+        alert("markers :" + gmarkers.length + "type :" + category);
+        for (i = 0; i < gmarkers.length; i++) {
+            marker = gmarkers[i];
+           // console.log("Marker type:"+marker.category);
+            // If is same category or category not picked
+            if (marker.category == category || category.length === 0) {
+                marker.setVisible(true);
+            }
+            // Categories don't match
+            else {
+                marker.setVisible(false);
+            }
+        }
+    }
+    // This part selecting which button was pressed and based on it , it decides what exactly filter.
+   function SelectMarkers($selector){
+        alert("Again ID:"+$selector);
+
+       switch($selector) {
+           case '1iz':
+               filter_markers("bar");
+               break;
+           case '2iz':
+               filter_markers("restaurant");
+               break;
+           case '3iz':
+               filter_markers("3iz");
+               break;
+           case '4iz':
+               filter_markers("4iz");
+               break;
+           case 'domy':
+               filter_markers("domy");
+               break;
+           case 'haly':
+               filter_markers("haly");
+               break;
+
+       }
+   }
+
     // this is for selectors of big map , 1iz, 2iz,3iz
     var activeEl = 1;
     $(function() {
@@ -339,6 +387,8 @@ $(function() {
             $( items[activeEl] ).removeClass('active');
             $( this ).addClass('active');
             activeEl = $( ".btn-nav" ).index( this );
+            //Call a selector function
+            SelectMarkers($(this).attr('id'));
         });
     });
 

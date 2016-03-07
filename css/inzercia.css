@@ -33,9 +33,11 @@
     margin: 0px;
 }
 
+/* Map creating AD css */
 #map_inzercia_select{
     height : 400px;
     width : 100%;
+    border: solid 10px #fff;
 }
 /* inzercia css style */
 .red{

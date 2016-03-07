@@ -65,7 +65,7 @@
 <!-- / Navigation end. -->
 
 <!-- section for Login page -->
-<section id="login" style="background:#efefe9;">
+<section id="login" style="background:#c4d1ff;">
     <div class="container-fluid ">
         <div class="row hidden-sm hidden-xs" style="height : 240px;">
 
@@ -198,7 +198,7 @@
 <!-- /Plans -->
 
 <!-- Second selection MAP properties selector -->
-<section id="map_inzercia" class="hidden">
+<section id="map_inzercia" class="hidden" style="background-color: #1ABC9C">
     <div class="container-fluid">
 
         <div class="col-sx-12 col-md-6">
