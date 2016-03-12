@@ -65,25 +65,47 @@ $(function() {
 });
 
 function SubmitAdCreate() {
-    var pos_lat = document.getElementById("ad_position1").value;
-    var pos_lng = document.getElementById("ad_position2").value;
-    var desc = document.getElementById("ad_desc").value;
-    var submit = document.getElementById("ad_submit");
-    //var password = document.getElementById("password").value;
-    //var contact = document.getElementById("contact").value;
+    pos_lat = document.getElementById("ad_position1").value;
+    pos_lng = document.getElementById("ad_position2").value;
+    desc = document.getElementById("ad_desc").value;
+    submit = document.getElementById("ad_submit");
+    address = document.getElementById("ad_adress").value;
+    name = document.getElementById("ad_name").value;
+    surname = document.getElementById("ad_surn").value;
+    phone = document.getElementById("ad_phone").value;
+    email = document.getElementById("ad_email").value;
+    subject = document.getElementById("ad_subject").value;
+    category = document.getElementById("id_category").value;
+    cena = document.getElementById("set_value").innerHTML.replace('Eur','');
+    vymera = document.getElementById("ad_vymera").value;
+
+
 // Returns successful data submission message when the entered information is stored in database.
-    var dataString = 'lat=' + pos_lat +'&lng='+ pos_lng + '&desc=' + desc + '&submit='+ submit ;
-    if (pos_lat == '' || desc == '' ) {
-        swal("Please Fill All Fields");
+    if (pos_lat == '' || desc == '' || cena == '' || category =='' || vymera == '' || email == '' || address == '') {
+        swal("Prosím vyplňte všetky políčka vo formulári. Ďakujeme.");
     } else {
 // AJAX code to submit form.
         $.ajax({
             type: "POST",
             url: "js/save_data.php",
-            data: dataString,
+            data: {
+                    'lat' : pos_lat,
+                    'lng' : pos_lng,
+                    'desc': desc,
+                    'address' :address,
+                    'name' : name,
+                    'surname' : surname,
+                    'phone' : phone,
+                    'email' : email,
+                    'subject':subject,
+                    'category': category,
+                    'cena' : cena,
+                    'vymera' : vymera
+
+            },
             cache: false,
             success: function(html) {
-                alert(html);
+                swal(html);
             }
         });
     }
@@ -98,6 +120,7 @@ $("#loginForm").submit(function (event) {
     //var pom = getLocation();
 
     $('#map_inzercia').removeClass('hidden');
+    $('nav.navbar').addClass('shrink');
     $('#login').addClass('hidden');
     $('#plans').addClass('hidden');
     //console.log("Posuvam dole na "+ pom.lat + "a " + pom.lng);

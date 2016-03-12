@@ -288,11 +288,11 @@
 
 
 <!-- Second selection MAP properties selector -->
-<section id="map_inzercia" class="hidden" style="background-color: #1ABC9C">
+<section id="map_inzercia" class="hidden" style="background-color: #1ABC9C; padding-top: 0;">
     <div class="container-fluid">
 
 
-
+<!-- Map section for selection of GPS point -->
         <div class="col-sx-12 col-md-10 col-md-offset-1">
             <div class="row">
                 <div id="map_inzercia_select">
@@ -301,74 +301,79 @@
 
         </div>
 
-
+      <div class="form-area">
+      <form role="form"  method="POST">
         <div class="col-sx-12 col-md-6 ">
 
-                <div class="form-area">
-                    <form role="form"  method="POST">
-                  <!--      <br style="clear:both">
-                        <h3 style="margin-bottom: 25px; text-align: center;">Zadaj inzerat</h3>
-                    --><br>
+            <!--    left side of FORM          -->
+
                         <div class="row">
-                            <div class="col-sx-6 col-md-2">
+                            <div class="form-group col-sx-6 col-md-2">
                                 <p>Cena</p>
                             </div>
-                            <div class="col-sx-6 col-md-8">
+                            <div class="form-group col-sx-6 col-md-8">
                                 <div id="slider_set_value" class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
                             </div>
-                            <div class="col-sx-6 col-md-2">
+                            <div class="form-group col-sx-6 col-md-2">
                                 <p id="set_value">00</p>
                             </div>
                         </div>
                         <div class="row">
                             <br>
-                            <div class="col-sx-12 col-md-4">
+                            <div class="form-group col-sx-12 col-md-4">
                                 <p>Kategoria</p>
                             </div>
-                            <div class="col-sx-12 col-md-8">
-                                <select class="form-control">
-                                    <option value="one">1iz</option>
-                                    <option value="two">2iz</option>
-                                    <option value="three">3iz</option>
-                                    <option value="four">4iz</option>
-                                    <option value="five">domy</option>
-                                    <option value="five">haly</option>
+                            <div  class="form-group col-sx-12 col-md-8">
+                                <select id="id_category" class="form-control">
+                                    <option value="1iz">1iz</option>
+                                    <option value="2iz">2iz</option>
+                                    <option value="3iz">3iz</option>
+                                    <option value="4iz">4iz</option>
+                                    <option value="domy">domy</option>
+                                    <option value="haly">haly</option>
                                 </select>
                             </div>
+                            </div>
                             <div class="row">
-                                <br>
-                                <div class="col-sx-12 col-md-4">
+
+                                <div class="form-group col-sx-12 col-md-4">
                                     <p>Vymera</p>
                                 </div>
-                                <div class="col-sx-12 col-md-8">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="" name="" placeholder="m2" >
-                                    </div>
+                                <div class="form-group col-sx-12 col-md-3">
+                                        <input type="text" class="form-control" id="ad_vymera" name="ad_vymera" placeholder="m2" >
                                 </div>
-                                <br>
+
                             </div>
 
                      <div class="row">
-                            <div class="col-sx-6 col-md-6">
-                        <div class="form-group">
+                         <div class="form-group col-sx-6 col-md-6">
                             <input type="text" class="form-control" id="ad_position1" name="ad_position1" placeholder="GPS Pozicia Nehnutelnosti" required>
-                        </div>
-                            </div>
-                        <div class="col-sx-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="ad_position2" name="ad_position2" placeholder="GPS Pozicia Nehnutelnosti" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
+                         </div>
+                         <div class="form-group col-sx-6 col-md-6">
+                             <input type="text" class="form-control" id="ad_position2" name="ad_position2" placeholder="GPS Pozicia Nehnutelnosti" required>
+                         </div>
+                         <div class="form-group col-sx-6 col-md-6">
                             <input type="text" class="form-control" id="ad_name" name="ad_name" placeholder="Meno" required>
+                            </div>
+                         <div class="form-group col-sx-6 col-md-6">
+                             <input type="text" class="form-control" id="ad_surn" name="ad_surn" placeholder="Priezvisko" required>
+                         </div>
+                         <div class="form-group col-sx-6 col-md-12">
+                             <input type="text" class="form-control" id="ad_adress" name="ad_adress" placeholder="Adresa" required>
+                         </div>
+                         <div class="form-group col-sx-6 col-md-6">
+                             <input type="text" class="form-control" id="ad_phone" name="ad_phone" placeholder="Telefon" required>
+                         </div>
+                         <div class="form-group col-sx-6 col-md-6">
+                             <input type="text" class="form-control" id="ad_email" name="ad_email" placeholder="Email" required>
+                         </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="ad_email" name="ad_email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="ad_mobile" name="ad_mobile" placeholder="Tel.cislo" required>
-                        </div>
-                        <div class="form-group">
+                    </div>
+
+                <!--    left side of FORM          -->
+                    <div class="row">
+                        <div class="col-sx-12 col-md-6">
+                         <div class="form-group">
                             <input type="text" class="form-control" id="ad_subject" name="ad_subject" placeholder="Titulok" required>
                         </div>
                         <div class="form-group">
@@ -377,9 +382,10 @@
                         </div>
 
                         <button type="button" id="ad_submit"  onclick="SubmitAdCreate()" name="ad_submit" class="btn btn-primary pull-right">Potvrdit</button>
-                            </div>
-                    </form>
-                </div>
+                        </div>
+                    </div>
+            </form>
+
             </div>
         </div>
 

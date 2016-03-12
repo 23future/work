@@ -161,7 +161,7 @@ $(function() {
             var lat = event.latLng.lat();
             var lng = event.latLng.lng();
             // populate yor box/field with lat, lng
-            alert("Lat=" + lat + "; Lng=" + lng);
+            //alert("Lat=" + lat + "; Lng=" + lng);
         });
         */
         //map.setCenter(new google.maps.LatLng(result.lat, result.lng));
@@ -296,7 +296,6 @@ $(function() {
             marker_lat=($(".lat_id").text());
             marker_lng=($(".lng_id").text());
             id_inzerat = ($(".id_id").text());
-            alert("INFO"+id_inzerat);
             $('#inzerat_part').removeClass('hidden');
             initMap2(marker_lat,marker_lng);
             init_review_window();
@@ -312,7 +311,6 @@ $(function() {
 
 
 function inti_inzerat_window(value) {
-    alert("AJAX run " + value);
 
     $.ajax({
         type: 'POST',
@@ -379,7 +377,7 @@ function inti_inzerat_window(value) {
 
     //Filter Markers based on their category : 1iz, 2iz , 3iz , 4iz , domy, haly
     filter_markers= function (category){
-        alert("markers :" + gmarkers.length + "type :" + category);
+        //alert("markers :" + gmarkers.length + "type :" + category);
         for (i = 0; i < gmarkers.length; i++) {
             marker = gmarkers[i];
            // console.log("Marker type:"+marker.category);
@@ -395,14 +393,14 @@ function inti_inzerat_window(value) {
     }
     // This part selecting which button was pressed and based on it , it decides what exactly filter.
    function SelectMarkers($selector){
-        alert("Again ID:"+$selector);
+        //alert("Again ID:"+$selector);
 
        switch($selector) {
            case '1iz':
-               filter_markers("bar");
+               filter_markers("1iz");
                break;
            case '2iz':
-               filter_markers("restaurant");
+               filter_markers("1iz");
                break;
            case '3iz':
                filter_markers("3iz");
