@@ -138,15 +138,15 @@ $(function() {
                 var xml = data.responseXML;
                  var markers = xml.documentElement.getElementsByTagName("marker");
                 for (var i = 0; i < markers.length; i++) {
-                    var name = markers[i].getAttribute("name");
-                    var address = markers[i].getAttribute("address");
-                    var type = markers[i].getAttribute("type");
-                    var point = new google.maps.LatLng(
+                     name = markers[i].getAttribute("name");
+                     address = markers[i].getAttribute("address");
+                     type = markers[i].getAttribute("type");
+                     point = new google.maps.LatLng(
                         parseFloat(markers[i].getAttribute("lat")),
                         parseFloat(markers[i].getAttribute("lng")));
-                    var html = "<b>" + name + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
-                    var icon = customIcons[type] || {};
-                    var marker = new google.maps.Marker({
+                     html = "<span class='id_id'>"+markers[i].getAttribute('id')+"</span><span class='lat_id'>"+markers[i].getAttribute('lat')+"</span><span class='lng_id'>"+markers[i].getAttribute("lng")+"</span><b>" + name + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
+                     icon = customIcons[type] || {};
+                     marker = new google.maps.Marker({
                         map: map,
                         position: point,
                         category : type,
@@ -165,8 +165,8 @@ $(function() {
         });
         */
         //map.setCenter(new google.maps.LatLng(result.lat, result.lng));
-        console.log("Nast. latitude:" + result.lat);
-        console.log("NAst. Longitude :" + result.lng);
+        //console.log("Nast. latitude:" + result.lat);
+        //console.log("NAst. Longitude :" + result.lng);
 
         $('#map_section').removeClass('hidden');
         console.log("Posuvam dole na $anchor");
@@ -218,7 +218,7 @@ $(function() {
                     var point = new google.maps.LatLng(
                         parseFloat(markers[i].getAttribute("lat")),
                         parseFloat(markers[i].getAttribute("lng")));
-                    var html = "<b>" + name + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
+                    var html = "<span class='id_id'>"+markers[i].getAttribute('id')+"</span><span class='lat_id'>"+markers[i].getAttribute('lat')+"</span><span class='lng_id'>"+markers[i].getAttribute("lng")+"</span><b>" + name + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
                     var icon = customIcons[type] || {};
                     var marker = new google.maps.Marker({
                         map: map,
@@ -287,13 +287,20 @@ $(function() {
     });
 });
 
+
+
 //after click on marker map 1
 $(function() {
         $('body').on('click', '.gm-style-iw a', function(event) {
             var $anchor = $(this);
+            marker_lat=($(".lat_id").text());
+            marker_lng=($(".lng_id").text());
+            id_inzerat = ($(".id_id").text());
+            alert("INFO"+id_inzerat);
             $('#inzerat_part').removeClass('hidden');
-            initMap2();
+            initMap2(marker_lat,marker_lng);
             init_review_window();
+            inti_inzerat_window(id_inzerat);
             console.log("Posuvam dole na $anchor");
             $('html, body').stop().animate({
                 scrollTop: $($anchor.attr('href')).offset().top
@@ -304,16 +311,51 @@ $(function() {
 });
 
 
+function inti_inzerat_window(value) {
+    alert("AJAX run " + value);
 
-    // inicializacia Mapy c.2
-    function initMap2() {
-        var mapDiv1 = document.getElementById('map2');
-        var map2 = new google.maps.Map(mapDiv1, {
-            center: {lat: 48.1589815, lng: 17.1235402},
+    $.ajax({
+        type: 'POST',
+        url: 'js/inzerat_window.php',
+        data: {
+            'id_of_inzerat': value,
+            'test': '167'
+        },
+        success: function(data, status) {
+           // JSON data was received by callback of inzerat_window.php
+           $('#id_inzerat').html("<strong>Inzerát #</strong>" + data.id );
+           $('#id_zadavatel').html("<strong>Zadavatel: </strong>");
+           $('#id_inzerat_body').html("<strong>Popis: </strong>"+ data.data);
+
+        },
+        error: function(xhr, desc, err) {
+            console.log(xhr);
+            console.log("Details: " + desc + "\nError:" + err);
+        }
+    });
+}
+
+
+    // inicializacia Mapy c.2 after clisk on Marker
+    function initMap2(marker_lat,marker_lng) {
+         mapDiv1 = document.getElementById('map2');
+         point = new google.maps.LatLng(
+            parseFloat(marker_lat),
+            parseFloat(marker_lng));
+         map2 = new google.maps.Map(mapDiv1, {
+            center: point,
+            //center : {lat : parseFloat(marker_lat), lng : parseFloat(marker_lng)},
             zoom: 15,
             draggable:false,
             disableDefaultUI: true
         });
+
+         marker = new google.maps.Marker({
+            map: map2,
+            position: point,
+            icon: "img/dot_pointer.png" //small red dot
+        });
+
     }
 
 
@@ -392,9 +434,12 @@ $(function() {
         });
     });
 
-    $(function(){
 
-        var nonLinearSlider = document.getElementById('nonlinear');
+
+
+    $(function(){
+        //this part will create UI slider for map1 and price selection
+        nonLinearSlider = document.getElementById('nonlinear');
 
         noUiSlider.create(nonLinearSlider, {
             connect: true,
@@ -425,5 +470,9 @@ $(function() {
                 upperValue.innerHTML = (values[handle]+" Eur");
             }
     });
+
+
+
 });
+
 

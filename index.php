@@ -194,9 +194,9 @@
             <div class="well profile">
                 <div class="col-sm-12">
                     <div class="col-xs-12 col-sm-8">
-                        <h3>Inzerat cislo:##</h3>
-                        <p><strong>Zadavatel: </strong> Web Designer / UI. </p>
-                        <p><strong>Popis: </strong> nehnutelnost sa nachazda v tichej lokalite, je to priestranny 3iz byt, s vymerou 90 m2. Byt je po ciastocnej rekonstrukcii, v blizkosti sa nachadza kompletna obcianska vybavenost, obchody, skolky. Moznost parkovania pred bytovkou. Ulica ja ticha a obyvatelia su prijemny. V pripade zaujmu ma prosim kontaktujte. </p>
+                        <p id="id_inzerat">Inzerat #</p>
+                        <p id="id_zadavatel"><strong>Zadavatel: </strong> Web Designer / UI. </p>
+                        <p id="id_inzerat_body"><strong>Popis: </strong> nehnutelnost sa nachazda v tichej lokalite, je to priestranny 3iz byt, s vymerou 90 m2. Byt je po ciastocnej rekonstrukcii, v blizkosti sa nachadza kompletna obcianska vybavenost, obchody, skolky. Moznost parkovania pred bytovkou. Ulica ja ticha a obyvatelia su prijemny. V pripade zaujmu ma prosim kontaktujte. </p>
 
                     </div>
                     <div class="col-xs-12 col-sm-4 text-center">
@@ -605,6 +605,8 @@
     <script src="js/freelancer.js"></script>
 	<!-- posts bar scrool -->
     <script src="js/jquery.auto-complete.js" type="text/javascript"></script>
+    <!-- ajax js -->
+    <script src="ajax.js"></script>
 </body>
 
 </html>

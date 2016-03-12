@@ -1,8 +1,6 @@
 <?php
 
-function init_conn_to_db(){
-    return (new MySQLi("localhost", "root", "hofer23", "examples"));
-}
+require_once ('db_connection.php');
 
 function load_data_from_database()
 {
@@ -19,7 +17,7 @@ function load_data_from_database()
 //$term = trim(strip_tags($_GET['term']));
     $a_json = array();
     $a_json_row = array();
-    if ($data = $mysqli->query("SELECT * FROM street")) {
+    if ($data = $mysqli->query("SELECT * FROM t_street")) {
         while ($row = mysqli_fetch_array($data)) {
             array_push($a_json, $row['street_name']);
         }
@@ -57,7 +55,6 @@ function get_posts_from_db() {
 
     return  $a_json;
 }
-
 
 ?>
 

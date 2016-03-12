@@ -26,7 +26,7 @@ if (!$db_selected) {
 
 // Select all the rows in the markers table
 
-$query = "SELECT * FROM markers WHERE 1";
+$query = "SELECT id,name,address,lat,lng,type FROM t_inzerat WHERE 1";
 $result = mysql_query($query);
 if (!$result) {
     die('Invalid query: ' . mysql_error());
@@ -45,6 +45,7 @@ while ($row = @mysql_fetch_assoc($result)){
     $newnode->setAttribute("lat", $row['lat']);
     $newnode->setAttribute("lng", $row['lng']);
     $newnode->setAttribute("type", $row['type']);
+    $newnode->setAttribute("id", $row['id']);
 }
 
 echo $dom->saveXML();

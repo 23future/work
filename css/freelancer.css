@@ -688,6 +688,17 @@ p.narrow{
     border-bottom-color: transparent;
 }
 
+span.round-tabs i {
+    margin: auto;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    height: 50%;
+
+}
+
 span.round-tabs{
     width: 70px;
     height: 70px;
@@ -734,13 +745,13 @@ li.active span.round-tabs.three{
 }
 
 span.round-tabs.four{
-    color: #f1685e;border: 2px solid #f1685e;
+    color: #4279d1;border: 2px solid #4279d1;
 }
 
 li.active span.round-tabs.four{
     background: #fff !important;
     border: 2px solid #ddd;
-    color: #f1685e;
+    color: #4279d1;
 }
 
 span.round-tabs.five{

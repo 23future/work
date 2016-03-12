@@ -1,9 +1,6 @@
 <?php
 
-
-function init_conn_to_db(){
-    return (new MySQLi("localhost", "root", "hofer23", "examples"));
-}
+require_once ('db_connection.php');
 
 function write_inzerat_db() {
     $mysqli = init_conn_to_db();

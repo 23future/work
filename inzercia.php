@@ -17,7 +17,10 @@
     <link href="css/inzercia.css" rel="stylesheet">
     <!-- Font style -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- jQuery -->
+    <!-- css UI slider  -->
+    <link href="css/nouislider.min.css" rel="stylesheet">
+    <!-- css UI for price bar / services  -->
+    <link href="css/price_bar.css" rel="stylesheet">
     <!-- Sweet css style for alert's -->
     <link href="css/sweet-alert.css" rel="stylesheet">
     <script src="js/jquery.js"></script>
@@ -116,92 +119,181 @@
 </section>
 <!-- section for Login page -->
 
-
-<!-- Section of Services provided of web page  -->
 <section id="plans">
-    <div class="container">
-            <div class="row text-center" style="margin-bottom:70px;" >
-
-                    <h1>Prehľad naších služieb</h1>
-            </div>
-        <div class="row">
-
-            <!-- item -->
-            <div class="col-sm-4 text-center">
-                <div class="panel panel-danger panel-pricing">
-                    <div class="panel-heading">
-                        <i class="fa fa-desktop"></i>
-                        <h3>Plan 1</h3>
-                    </div>
-                    <div class="panel-body text-center">
-                        <p><strong>FREE</strong></p>
-                    </div>
-                    <ul class="list-group text-center">
-                        <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
-                        <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
-                        <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
-                    </ul>
-                    <div class="panel-footer">
-                        <a class="btn btn-lg btn-block btn-danger" href="#">INFO</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /item -->
-
-            <!-- item -->
-            <div class="col-sm-4 text-center">
-                <div class="panel panel-warning panel-pricing">
-                    <div class="panel-heading">
-                        <i class="fa fa-desktop"></i>
-                        <h3>Plan 2</h3>
-                    </div>
-                    <div class="panel-body text-center">
-                        <p><strong>FREE</strong></p>
-                    </div>
-                    <ul class="list-group text-center">
-                        <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
-                        <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
-                        <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
-                    </ul>
-                    <div class="panel-footer">
-                        <a class="btn btn-lg btn-block btn-warning" href="#">INFO</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /item -->
-
-            <!-- item -->
-            <div class="col-sx-8 col-sx-offset-2 col-sm-4 text-center">
-                <div class="panel panel-success panel-pricing">
-                    <div class="panel-heading">
-                        <i class="fa fa-desktop"></i>
-                        <h3>Plan 3</h3>
-                    </div>
-                    <div class="panel-body text-center">
-                        <p><strong>FREE</strong></p>
-                    </div>
-                    <ul class="list-group text-center">
-                        <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
-                        <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
-                        <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
-                    </ul>
-                    <div class="panel-footer">
-                        <a class="btn btn-lg btn-block btn-success" href="#">INFO</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /item -->
-
+    <div class="pricing-container">
+        <div class="pricing-switcher">
+            <p class="fieldset">
+                <input type="radio" name="duration-1" value="monthly" id="monthly-1" checked>
+                <label for="monthly-1">Poplatky</label>
+                <input type="radio" name="duration-1" value="yearly" id="yearly-1">
+                <label for="yearly-1">Sluzby</label>
+                <span class="switch"></span>
+            </p>
         </div>
+        <ul class="pricing-list bounce-invert">
+            <li>
+                <ul class="pricing-wrapper">
+                    <li data-type="monthly" class="is-visible">
+                        <header class="pricing-header">
+                            <h2>Basic</h2>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="value">30</span>
+                                <span class="duration">mo</span>
+                            </div>
+                        </header>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><em>5</em> Email Accounts</li>
+                                <li><em>1</em> Template Style</li>
+                                <li><em>25</em> Products Loaded</li>
+                                <li><em>1</em> Image per Product</li>
+                                <li><em>Unlimited</em> Bandwidth</li>
+                                <li><em>24/7</em> Support</li>
+                            </ul>
+                        </div>
+                        <footer class="pricing-footer">
+                            <a class="select" href="#">Sign Up</a>
+                        </footer>
+                    </li>
+                    <li data-type="yearly" class="is-hidden">
+                        <header class="pricing-header">
+                            <h2>Basic</h2>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="value">320</span>
+                                <span class="duration">yr</span>
+                            </div>
+                        </header>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><em>5</em> Email Accounts</li>
+                                <li><em>1</em> Template Style</li>
+                                <li><em>25</em> Products Loaded</li>
+                                <li><em>1</em> Image per Product</li>
+                                <li><em>Unlimited</em> Bandwidth</li>
+                                <li><em>24/7</em> Support</li>
+                            </ul>
+                        </div>
+                        <footer class="pricing-footer">
+                            <a class="select" href="#">Sign Up</a>
+                        </footer>
+                    </li>
+                </ul>
+            </li>
+            <li class="exclusive">
+                <ul class="pricing-wrapper">
+                    <li data-type="monthly" class="is-visible">
+                        <header class="pricing-header">
+                            <h2>Exclusive</h2>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="value">60</span>
+                                <span class="duration">mo</span>
+                            </div>
+                        </header>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><em>15</em> Email Accounts</li>
+                                <li><em>3</em> Template Styles</li>
+                                <li><em>40</em> Products Loaded</li>
+                                <li><em>7</em> Images per Product</li>
+                                <li><em>Unlimited</em> Bandwidth</li>
+                                <li><em>24/7</em> Support</li>
+                            </ul>
+                        </div>
+                        <footer class="pricing-footer">
+                            <a class="select" href="#">Sign Up</a>
+                        </footer>
+                    </li>
+                    <li data-type="yearly" class="is-hidden">
+                        <header class="pricing-header">
+                            <h2>Exclusive</h2>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="value">630</span>
+                                <span class="duration">yr</span>
+                            </div>
+                        </header>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><em>15</em> Email Accounts</li>
+                                <li><em>3</em> Template Styles</li>
+                                <li><em>40</em> Products Loaded</li>
+                                <li><em>7</em> Images per Product</li>
+                                <li><em>Unlimited</em> Bandwidth</li>
+                                <li><em>24/7</em> Support</li>
+                            </ul>
+                        </div>
+                        <footer class="pricing-footer">
+                            <a class="select" href="#">Sign Up</a>
+                        </footer>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="pricing-wrapper">
+                    <li data-type="monthly" class="is-visible">
+                        <header class="pricing-header">
+                            <h2>Pro</h2>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="value">90</span>
+                                <span class="duration">mo</span>
+                            </div>
+                        </header>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><em>20</em> Email Accounts</li>
+                                <li><em>5</em> Template Styles</li>
+                                <li><em>50</em> Products Loaded</li>
+                                <li><em>10</em> Images per Product</li>
+                                <li><em>Unlimited</em> Bandwidth</li>
+                                <li><em>24/7</em> Support</li>
+                            </ul>
+                        </div>
+                        <footer class="pricing-footer">
+                            <a class="select" href="#">Sign Up</a>
+                        </footer>
+                    </li>
+                    <li data-type="yearly" class="is-hidden">
+                        <header class="pricing-header">
+                            <h2>Pro</h2>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="value">950</span>
+                                <span class="duration">yr</span>
+                            </div>
+                        </header>
+                        <div class="pricing-body">
+                            <ul class="pricing-features">
+                                <li><em>20</em> Email Accounts</li>
+                                <li><em>5</em> Template Styles</li>
+                                <li><em>50</em> Products Loaded</li>
+                                <li><em>10</em> Images per Product</li>
+                                <li><em>Unlimited</em> Bandwidth</li>
+                                <li><em>24/7</em> Support</li>
+                            </ul>
+                        </div>
+                        <footer class="pricing-footer">
+                            <a class="select" href="#">Sign Up</a>
+                        </footer>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </section>
-<!-- /Plans -->
+
+
 
 <!-- Second selection MAP properties selector -->
 <section id="map_inzercia" class="hidden" style="background-color: #1ABC9C">
     <div class="container-fluid">
 
-        <div class="col-sx-12 col-md-6">
+
+
+        <div class="col-sx-12 col-md-10 col-md-offset-1">
             <div class="row">
                 <div id="map_inzercia_select">
                 </div>
@@ -209,46 +301,93 @@
 
         </div>
 
-        <div class="col-sx-12 col-md-5 col-md-offset-1">
-            <div class="row">
+
+        <div class="col-sx-12 col-md-6 ">
+
                 <div class="form-area">
                     <form role="form"  method="POST">
-                        <br style="clear:both">
+                  <!--      <br style="clear:both">
                         <h3 style="margin-bottom: 25px; text-align: center;">Zadaj inzerat</h3>
-                        <div class="col-sx-6 ">
+                    --><br>
+                        <div class="row">
+                            <div class="col-sx-6 col-md-2">
+                                <p>Cena</p>
+                            </div>
+                            <div class="col-sx-6 col-md-8">
+                                <div id="slider_set_value" class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
+                            </div>
+                            <div class="col-sx-6 col-md-2">
+                                <p id="set_value">00</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <div class="col-sx-12 col-md-4">
+                                <p>Kategoria</p>
+                            </div>
+                            <div class="col-sx-12 col-md-8">
+                                <select class="form-control">
+                                    <option value="one">1iz</option>
+                                    <option value="two">2iz</option>
+                                    <option value="three">3iz</option>
+                                    <option value="four">4iz</option>
+                                    <option value="five">domy</option>
+                                    <option value="five">haly</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <br>
+                                <div class="col-sx-12 col-md-4">
+                                    <p>Vymera</p>
+                                </div>
+                                <div class="col-sx-12 col-md-8">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="" name="" placeholder="m2" >
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+
+                     <div class="row">
+                            <div class="col-sx-6 col-md-6">
                         <div class="form-group">
                             <input type="text" class="form-control" id="ad_position1" name="ad_position1" placeholder="GPS Pozicia Nehnutelnosti" required>
                         </div>
                             </div>
-                        <div class="col-sx-6 ">
+                        <div class="col-sx-6 col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="ad_position2" name="ad_position2" placeholder="GPS Pozicia Nehnutelnosti" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="ad_name" name="ad_name" placeholder="Name" required>
+                            <input type="text" class="form-control" id="ad_name" name="ad_name" placeholder="Meno" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="ad_email" name="ad_email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="ad_mobile" name="ad_mobile" placeholder="Mobile Number" required>
+                            <input type="text" class="form-control" id="ad_mobile" name="ad_mobile" placeholder="Tel.cislo" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="ad_subject" name="ad_subject" placeholder="Subject" required>
+                            <input type="text" class="form-control" id="ad_subject" name="ad_subject" placeholder="Titulok" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" type="textarea" id="ad_desc" name="ad_desc" placeholder="Message" maxlength="140" rows="7"></textarea>
+                            <textarea class="form-control" type="textarea" id="ad_desc" name="ad_desc" placeholder="Obsah inzeratu" maxlength="140" rows="7"></textarea>
                             <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                         </div>
 
-                        <button type="button" id="ad_submit"  onclick="SubmitAdCreate()" name="ad_submit" class="btn btn-primary pull-right">Submit Form</button>
+                        <button type="button" id="ad_submit"  onclick="SubmitAdCreate()" name="ad_submit" class="btn btn-primary pull-right">Potvrdit</button>
+                            </div>
                     </form>
                 </div>
             </div>
         </div>
 
-    </div>
+        <div class="col-sx-12 col-md-6 ">
+            <div class="row">
+                        <h3>Galeria izeratu</h3>
+            </div>
+        </div>
 
 </section>
 
@@ -385,7 +524,9 @@
 <script src="js/classie.js"></script>
 <!-- Custom JavaScript for Inzercia.php-->
 <script src="js/inzercia.js"></script>
-
+<!-- Slider price values -->
+<script src="js/nouislider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </body>
 
 </html>
