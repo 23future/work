@@ -210,11 +210,11 @@
                 </div>
                 <div class="col-xs-12 divider text-center">
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong> 20,7K </strong></h2>
+                        <h2 id="id_inzerat_cena"><strong> 20,7K </strong></h2>
                         <p><small>Cena Eur</small></p>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong>245</strong></h2>
+                        <h2 id = "id_inzerat_vymera"><strong>245</strong></h2>
                         <p><small>Vymera m2</small></p>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">

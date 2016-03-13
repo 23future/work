@@ -117,13 +117,25 @@ $(function() {
         var $anchor = $(this);
         // Markers settings - icon
         var customIcons = {
-            restaurant: {
+            '1iz': {
                 icon : "img/light_blue_marker.png"
             },
-            bar: {
+            '2iz': {
                 icon: "img/green_marker.png"
+            },
+            '3iz': {
+                icon: "img/Marker-Inside-Pink.png"
+            },
+            '4iz': {
+                icon: "img/Marker-Inside-Pink.png"
+                },
+            'domy': {
+                icon: "img/Marker-Outside-Azure.png"
+            },
+            'haly': {
+                icon: "img/Marker-Outside-Pink.png"
             }
-        };
+            };
 
         var map = new google.maps.Map(document.getElementById("map_property"), {
                // center: new google.maps.LatLng(48.158186, 17.130042),
@@ -188,11 +200,23 @@ $(function() {
             event.preventDefault();
         // Markers settings - icon
             var customIcons = {
-                restaurant: {
+                '1iz': {
                     icon : "img/light_blue_marker.png"
                 },
-                bar: {
+                '2iz': {
                     icon: "img/green_marker.png"
+                },
+                '3iz': {
+                    icon: "img/Marker-Inside-Pink.png"
+                },
+                '4iz': {
+                    icon: "img/Marker-Inside-Pink.png"
+                },
+                'domy': {
+                    icon: "img/Marker-Outside-Azure.png"
+                },
+                'haly': {
+                    icon: "img/Marker-Outside-Pink.png"
                 }
             };
 
@@ -324,7 +348,8 @@ function inti_inzerat_window(value) {
            $('#id_inzerat').html("<strong>Inzerát #</strong>" + data.id );
            $('#id_zadavatel').html("<strong>Zadavatel: </strong>");
            $('#id_inzerat_body').html("<strong>Popis: </strong>"+ data.data);
-
+           $('#id_inzerat_cena').html("<strong>"+data.cena +"</strong>");
+           $('#id_inzerat_vymera').html("<strong>"+data.vymera +"</strong>");
         },
         error: function(xhr, desc, err) {
             console.log(xhr);
@@ -400,7 +425,7 @@ function inti_inzerat_window(value) {
                filter_markers("1iz");
                break;
            case '2iz':
-               filter_markers("1iz");
+               filter_markers("2iz");
                break;
            case '3iz':
                filter_markers("3iz");
