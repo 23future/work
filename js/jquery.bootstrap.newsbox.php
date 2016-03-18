@@ -19,6 +19,12 @@ $( document ).ready(function() {
             F.prototype = obj;
             return new F();
         };
+
+        function PostDetail(){
+            swal("You pressed it ! ");
+
+        }
+
     }
 
     (function ($, w, d, undefined) {
@@ -30,7 +36,6 @@ $( document ).ready(function() {
                 var self = this;
                 self.elem = elem;
                 self.$elem = $(elem);
-debugger;
                 self.newsTagName = self.$elem.find(":first-child").prop('tagName');
                 self.newsClassName = self.$elem.find(":first-child").attr('class');
                 console.log("new Class name:"+self.newsClassName);
@@ -112,18 +117,18 @@ debugger;
 
                 //get height of the very first self.options.newsPerPage news
                 var height = 0;
-                /*
-                $.map(self.$elem.find(self.newsTagName), function (newsItem, index) {
+
+                /*$.map(self.$elem.find(self.newsTagName), function (newsItem, index) {
                         if (index < self.options.newsPerPage) {
                             //alert("this is first " + self.options.newsPerPage);
                             height = parseInt(height) + parseInt($(newsItem).height()) + 10;
                             console.log("this is height:" + height);
                         }
-                });  */
+                });
 
-                //$(self.elem).css({"overflow-y": "hidden", "height": height});
+                $(self.elem).css({"overflow-y": "hidden", "height": height});
 
-                $(self.elem).css({"overflow-y": "hidden"});
+                $(self.elem).css({"overflow-y": "hidden"});  */
                 //recalculate news box height for responsive interfaces
                 $(w).resize(function () {
                     if (self.resizeTimer !== null) {
@@ -202,7 +207,7 @@ debugger;
                         $posts = array();
                         $posts = get_posts_from_db();
                         foreach ($posts as $item) {
-                            $nav .= '<li class="news-item"><table cellpadding="4"><tr><td><img src="images/man.png" width="60" class="img-circle" /></td><td>' . $item . '<a href="#Modal_window" data-toggle="modal" >Read more...</a></td></tr></table></li>';
+                            $nav .= '<li class="news-item"><table cellpadding="4"><tr><td><img src="images/man.png" width="60" class="img-circle" /></td><td>' . $item . '<a href="#Modal_window" data-toggle="modal"> Read more...</a></td></tr></table></li>';
 
                         }
                         ?>
@@ -353,6 +358,10 @@ debugger;
 
     })(jQuery, window, document);
 
+
 });
+
+
+
 
 </script>

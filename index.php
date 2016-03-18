@@ -106,15 +106,42 @@
                 minChars: 1,
                 source: function (term, suggest) {
                     term = term.toLowerCase();
-                    //var choices = ['ActionScript', 'AppleScript', 'Asp', 'Assembly', 'BASIC', 'Batch', 'C', 'C++', 'CSS', 'Clojure', 'COBOL', 'ColdFusion', 'Erlang', 'Fortran', 'Groovy', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lisp', 'Perl', 'PHP', 'PowerShell', 'Python', 'Ruby', 'Scala', 'Scheme', 'SQL', 'TeX', 'XML'];
+                    term2 = diaConvert(term);
+                    console.log("TERM" + term + "-" +term2);
                     var choices = <?php load_data_from_database(); ?>;
                     var suggestions = [];
                     for (var i = 0; i < choices.length; i++)
-                        if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+                        //if (~choices[i].toLowerCase().indexOf(term) )) suggestions.push(choices[i]);
+                        if ((~choices[i].toLowerCase().indexOf(term)) || (~choices[i].toLowerCase().indexOf(term2))) suggestions.push(choices[i]);
                     suggest(suggestions);
                 }
             });
 
+
+
+            function diaConvert(text) {
+                dia = "áäčéíľňóôšťúžÁČĎÉÍĽŇÓŠŤÚŽ";
+                nodia = "aaceilnoostuzACDEILNOSTUZ";
+
+                dia2 = "áčéíôšúžÁČÉÍĽŇÓŠŤÚŽ";
+                nodia2 = "aceiosuzACEILNOSTUZ";
+                var convertText = "";
+                for(i=0; i<text.length; i++) {
+                    if(dia.indexOf(text.charAt(i))!=-1) {
+                        convertText += nodia.charAt(dia.indexOf(text.charAt(i)));
+                        }
+
+                    if(nodia2.indexOf(text.charAt(i))!=-1) {
+                        convertText += dia2.charAt(nodia2.indexOf(text.charAt(i)));
+                        }
+                        else {
+                            convertText += text.charAt(i);
+                        }
+                }
+                return convertText;
+            }
+
+            //alert(diaConvert("ščťžý"));
 
         });
     </script>
@@ -210,12 +237,12 @@
                 </div>
                 <div class="col-xs-12 divider text-center">
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2 id="id_inzerat_cena"><strong> 20,7K </strong></h2>
-                        <p><small>Cena Eur</small></p>
+                        <h2 id="id_inzerat_cena" data-toggle="tooltip" data-placement="top" ><strong>0</strong></h2>
+                        <p><small>Eur</small></p>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2 id = "id_inzerat_vymera"><strong>245</strong></h2>
-                        <p><small>Vymera m2</small></p>
+                        <h2 id = "id_inzerat_vymera" data-toggle="tooltip" data-placement="top" ><strong>0</strong></h2>
+                        <p><small>m2</small></p>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">
                         <br>

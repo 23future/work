@@ -334,6 +334,7 @@ $(function() {
 });
 
 
+
 function inti_inzerat_window(value) {
 
     $.ajax({
@@ -341,15 +342,25 @@ function inti_inzerat_window(value) {
         url: 'js/inzerat_window.php',
         data: {
             'id_of_inzerat': value,
-            'test': '167'
         },
         success: function(data, status) {
            // JSON data was received by callback of inzerat_window.php
            $('#id_inzerat').html("<strong>Inzerát #</strong>" + data.id );
            $('#id_zadavatel').html("<strong>Zadavatel: </strong>");
            $('#id_inzerat_body').html("<strong>Popis: </strong>"+ data.data);
-           $('#id_inzerat_cena').html("<strong>"+data.cena +"</strong>");
-           $('#id_inzerat_vymera').html("<strong>"+data.vymera +"</strong>");
+            console.log("cena"+data.cena +"vymera:"+ data.vymera);
+           inzerat_cena = $('#id_inzerat_cena');
+            inzerat_cena.html("<strong>"+getRepString(data.cena) +"</strong>");
+            //inzerat_cena.prop('title', data.cena);
+            inzerat_cena.tooltip('toggle')
+                .attr('data-original-title', data.cena)
+                .tooltip('fixTitle');
+
+           inzerat_vymera =$('#id_inzerat_vymera');
+            inzerat_vymera.html("<strong>"+getRepString(data.vymera) +"</strong>");
+            inzerat_vymera.tooltip('toggle')
+                .attr('data-original-title', data.vymera)
+                .tooltip('fixTitle');
         },
         error: function(xhr, desc, err) {
             console.log(xhr);
@@ -358,6 +369,18 @@ function inti_inzerat_window(value) {
     });
 }
 
+    //This will convert values - numbers into format 1000 = 1K 2300 = 2.3K and so on ..
+        function getRepString (rep) {
+            rep = rep+''; // coerce to string
+            if (rep < 1000) {
+                return rep; // return the same number
+            }
+            if (rep < 10000) { // place a comma between
+                return rep.charAt(0) + ',' + rep.substring(1);
+            }
+            // divide and format
+            return (rep/1000).toFixed(rep % 1000 != 0)+'k';
+        }
 
     // inicializacia Mapy c.2 after clisk on Marker
     function initMap2(marker_lat,marker_lng) {
@@ -381,7 +404,7 @@ function inti_inzerat_window(value) {
 
     }
 
-
+    // initializing post of street's window
     function init_review_window() {
         $(".demo1").bootstrapNews({
             newsPerPage: 6,
@@ -390,7 +413,7 @@ function inti_inzerat_window(value) {
             direction: 'up',
             newsTickerInterval: 4000, //4sek
             onToDo: function () {
-                //console.log(this);
+                console.log(this);
             }
         });
     }

@@ -377,7 +377,7 @@
                             <input type="text" class="form-control" id="ad_subject" name="ad_subject" placeholder="Titulok" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" type="textarea" id="ad_desc" name="ad_desc" placeholder="Obsah inzeratu" maxlength="140" rows="7"></textarea>
+                            <textarea class="form-control" type="textarea" id="ad_desc" name="ad_desc" placeholder="Obsah inzeratu" maxlength="500" rows="7"></textarea>
                             <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                         </div>
 
