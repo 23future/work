@@ -164,12 +164,13 @@ $("#loginForm").submit(function (event) {
 });
 
 $(function() {
-
-    snapSlider = document.getElementById('slider_set_value');
+      // Slider for Inzerat Add , Edit Part of Web :
+    var snapSlider = document.getElementById('slider_set_value');
     field = document.getElementById('set_value');
 
     noUiSlider.create(snapSlider, {
         start: 0,
+        step: 1000,
         behaviour: 'snap',
         connect: 'lower',
         range: {
@@ -178,10 +179,42 @@ $(function() {
         }
     });
 
-    // Dinamically set value in text area
-    snapSlider.noUiSlider.on('update', function( value ){
-        field.innerHTML = value + "Eur" ;
+    snapSlider.noUiSlider.on('update', function( values, handle ) {
+        field.value = values[handle];
     });
+
+    field.addEventListener('change', function(){
+        snapSlider.noUiSlider.set([null, this.value]);
+    });
+
+
+// Listen on Press button enter , up , down to set Price Value
+    field.addEventListener('keydown', function( e ) {
+
+        // Convert the string to a number.
+        var value = Number( snapSlider.noUiSlider.get() ),
+            sliderStep = snapSlider.noUiSlider.steps()
+
+        // Select the stepping for the first handle.
+        sliderStep = sliderStep[0];
+
+        // 13 is enter,
+        // 38 is key up,
+        // 40 is key down.
+        switch ( e.which ) {
+            case 13:
+                snapSlider.noUiSlider.set(this.value);
+                alert("Enter was pressed"+this.value);
+                break;
+            case 38:
+                snapSlider.noUiSlider.set( value + sliderStep[1] );
+                break;
+            case 40:
+                snapSlider.noUiSlider.set( value - sliderStep[0] );
+                break;
+        }
+    });
+
 });
 
 

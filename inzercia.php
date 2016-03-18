@@ -311,12 +311,13 @@
                             <div class="form-group col-sx-6 col-md-2">
                                 <p>Cena</p>
                             </div>
-                            <div class="form-group col-sx-6 col-md-8">
+                            <div class="form-group col-sx-6 col-md-7">
                                 <div id="slider_set_value" class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
                             </div>
-                            <div class="form-group col-sx-6 col-md-2">
-                                <p id="set_value">00</p>
-                            </div>
+                            <div class="form-group col-sx-6 col-md-3" >
+                                    <input id="set_value" class="form-control" type="text">
+
+                                </div>
                         </div>
                         <div class="row">
                             <br>
