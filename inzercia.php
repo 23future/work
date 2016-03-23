@@ -78,24 +78,24 @@
                 <div class="well">
                     <form id="loginForm" method="POST" action="" novalidate="novalidate">
                         <div class="form-group">
-                            <label for="username" class="control-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                            <label for="username" class="control-label">Prihlasovacie meno(email)</label>
+                            <input type="text" class="form-control" id="username" name="username" value="" required="" title="Prosím, zadajte Vaše prihlasovacie meno" placeholder="example@gmail.com">
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
-                            <label for="password" class="control-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                            <label for="password" class="control-label">Heslo</label>
+                            <input type="password" class="form-control" id="password" name="password" value="" required="" title="Prosím, zadajte Vaše heslo">
                             <span class="help-block"></span>
                         </div>
-                        <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                        <div id="loginErrorMsg" class="alert alert-error hide">Zadali ste nespávne heslo</div>
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="remember" id="remember"> Remember login
                             </label>
                             <p class="help-block"></p>
                         </div>
-                        <button type="submit" href="#map_inzercia" class="btn btn-success btn-block">Login</button>
-                        <a href="#map_inzercia" class="btn btn-default btn-block">Help to login</a>
+                        <button type="submit" href="#map_inzercia" class="btn btn-success btn-block">Prihlásenie</button>
+                        <a href="#map_inzercia" class="btn btn-default btn-block">Zabudli ste heslo?</a>
                     </form>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                     <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
                     <li><a href="#add_izerat" data-toggle="modal"><u>Read more</u></a></li>
                 </ul>
-                <p><a href="#map_inzercia" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                <p><a href="#map_inzercia" class="btn btn-info btn-block">REGISTRÁCIA</a></p>
             </div>
         </div>
         <div class="row hidden-sm hidden-sx" style="height : 130px;">

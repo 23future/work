@@ -149,7 +149,7 @@
 	<section id="map_section" class="hidden">
         <div class="container-fluid">
 
-            <div class="col-lg-12">
+            <div class="col-sx-12">
                 <div class="row">
                     <div class="btn-group btn-group-justified">
                         <div class="btn-group">
@@ -190,22 +190,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div id='slider1' class="col-md-3 centered" >
-                        <span id="lower-value" class="example-val">00.00   </span>
-                    </div>
-                    <div id='slider2' class="col-md-6" >
-                        <div id="nonlinear" class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
-                    </div>
-                    <div id='slider3' class="col-md-3 centered" >
-                        <span id="upper-value" class="example-val">  500000.00</span>
-                    </div>
+            </div>
+            <div class="row">
+                <div id='slider1' class="col-sm-2 col-md-3 centered" >
+                    <span id="lower-value" class="example-val">00.00</span>
                 </div>
-                <div class="row">
-                    <div id="map_property">
-                        </div>
+                <div id='slider2' class="col-sm-8 col-md-6" >
+                    <div id="nonlinear" class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
                 </div>
-
+                <div id='slider3' class="col-sm-2 col-md-3 centered" >
+                    <span id="upper-value" class="example-val">500000.00</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sx-12">
+                <div id="map_property">
+                </div>
+                </div>
             </div>
 
 		</div>
@@ -222,8 +223,8 @@
                 <div class="col-sm-12">
                     <div class="col-xs-12 col-sm-8">
                         <p id="id_inzerat">Inzerat #</p>
-                        <p id="id_zadavatel"><strong>Zadavatel: </strong> Web Designer / UI. </p>
-                        <p id="id_inzerat_body"><strong>Popis: </strong> nehnutelnost sa nachazda v tichej lokalite, je to priestranny 3iz byt, s vymerou 90 m2. Byt je po ciastocnej rekonstrukcii, v blizkosti sa nachadza kompletna obcianska vybavenost, obchody, skolky. Moznost parkovania pred bytovkou. Ulica ja ticha a obyvatelia su prijemny. V pripade zaujmu ma prosim kontaktujte. </p>
+                        <p id="id_zadavatel"><strong>Zadavatel:</strong></p>
+                        <p id="id_inzerat_body"><strong>Popis: </strong> </p>
 
                     </div>
                     <div class="col-xs-12 col-sm-4 text-center">

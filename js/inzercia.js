@@ -76,7 +76,7 @@ function SubmitAdCreate() {
     email = document.getElementById("ad_email").value;
     subject = document.getElementById("ad_subject").value;
     category = document.getElementById("id_category").value;
-    cena = document.getElementById("set_value").innerHTML.replace('Eur','');
+    cena = document.getElementById("set_value").value;
     vymera = document.getElementById("ad_vymera").value;
 
 
@@ -204,7 +204,6 @@ $(function() {
         switch ( e.which ) {
             case 13:
                 snapSlider.noUiSlider.set(this.value);
-                alert("Enter was pressed"+this.value);
                 break;
             case 38:
                 snapSlider.noUiSlider.set( value + sliderStep[1] );

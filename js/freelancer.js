@@ -150,13 +150,13 @@ $(function() {
                 var xml = data.responseXML;
                  var markers = xml.documentElement.getElementsByTagName("marker");
                 for (var i = 0; i < markers.length; i++) {
-                     name = markers[i].getAttribute("name");
+                     cena = markers[i].getAttribute("cena");
                      address = markers[i].getAttribute("address");
                      type = markers[i].getAttribute("type");
                      point = new google.maps.LatLng(
                         parseFloat(markers[i].getAttribute("lat")),
                         parseFloat(markers[i].getAttribute("lng")));
-                     html = "<span class='id_id'>"+markers[i].getAttribute('id')+"</span><span class='lat_id'>"+markers[i].getAttribute('lat')+"</span><span class='lng_id'>"+markers[i].getAttribute("lng")+"</span><b>" + name + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
+                     html = "<span class='id_id'>"+markers[i].getAttribute('id')+"</span><span class='lat_id'>"+markers[i].getAttribute('lat')+"</span><span class='lng_id'>"+markers[i].getAttribute("lng")+"</span><b>" + cena + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
                      icon = customIcons[type] || {};
                      marker = new google.maps.Marker({
                         map: map,
@@ -236,13 +236,13 @@ $(function() {
                 var xml = data.responseXML;
                  var markers = xml.documentElement.getElementsByTagName("marker");
                 for (var i = 0; i < markers.length; i++) {
-                    var name = markers[i].getAttribute("name");
+                    var cena = markers[i].getAttribute("cena");
                     var address = markers[i].getAttribute("address");
                     var type = markers[i].getAttribute("type");
                     var point = new google.maps.LatLng(
                         parseFloat(markers[i].getAttribute("lat")),
                         parseFloat(markers[i].getAttribute("lng")));
-                    var html = "<span class='id_id'>"+markers[i].getAttribute('id')+"</span><span class='lat_id'>"+markers[i].getAttribute('lat')+"</span><span class='lng_id'>"+markers[i].getAttribute("lng")+"</span><b>" + name + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
+                    var html = "<span class='id_id'>"+markers[i].getAttribute('id')+"</span><span class='lat_id'>"+markers[i].getAttribute('lat')+"</span><span class='lng_id'>"+markers[i].getAttribute("lng")+"</span><b>" + cena + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
                     var icon = customIcons[type] || {};
                     var marker = new google.maps.Marker({
                         map: map,
@@ -466,7 +466,7 @@ function inti_inzerat_window(value) {
        }
    }
 
-    // this is for selectors of big map , 1iz, 2iz,3iz
+    // this is for selectors of big map , 1iz, 2iz,3iz,...haly
     var activeEl = 1;
     $(function() {
         var items = $('.btn-nav');
@@ -484,6 +484,7 @@ function inti_inzerat_window(value) {
 
 
     $(function(){
+
         //this part will create UI slider for map1 and price selection
         nonLinearSlider = document.getElementById('nonlinear');
 
@@ -510,14 +511,55 @@ function inti_inzerat_window(value) {
         // Display the slider value and how far the handle moved
         // from the left edge of the slider.
         nonLinearSlider.noUiSlider.on('update', function ( values, handle ) {
+            //values = getRepString(values[handle]);
+            //console.log("value"+values);
             if ( !handle ) {
-                lowerValue.innerHTML = (values[handle]+" Eur");
+                lowerValue.innerHTML = (getRepString(values[handle])+" Eur");
             } else {
-                upperValue.innerHTML = (values[handle]+" Eur");
+                upperValue.innerHTML = (getRepString(values[handle])+" Eur");
             }
-    });
 
+            priceSelectMarker(values,handle);
+        });
 
+        function priceSelectMarker(values, handle){
+
+            debugger;
+            console.log("nastavujem"+(values[handle]));
+            if ( !handle ) {
+                for (i = 0; i < gmarkers.length; i++) {
+                    marker = gmarkers[i];
+
+                    // console.log("Marker type:"+marker.category);
+                    // If is same category or category not picked
+
+                    if (marker.cena > (values[handle])) {
+                        console.log("marker is:" + marker.cena);
+                        marker.setVisible(true);
+                    }
+                    // Categories don't match
+                    else {
+                        marker.setVisible(false);
+                    }
+                }
+
+            } else {
+                for (i = 0; i < gmarkers.length; i++) {
+                    marker = gmarkers[i];
+
+                    // console.log("Marker type:"+marker.category);
+                    // If is same category or category not picked
+
+                    if (marker.cena < (values[handle])) {
+                        marker.setVisible(true);
+                    }
+                    // Categories don't match
+                    else {
+                        marker.setVisible(false);
+                    }
+                }
+            }
+        }
 
 });
 
