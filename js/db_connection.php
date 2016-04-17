@@ -16,6 +16,9 @@ function init_conn_to_db(){
     return (new MySQLi(HOST, USER, PASSWORD, DATABASE));
 }
 
+function connect_to_db(){
+    return (new MySQLi(HOST, USER, PASSWORD, DATABASE));
+}
 
 function init_db() {
 

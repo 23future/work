@@ -49,7 +49,7 @@ $(function() {
 
      jQuery('html, body').animate({scrollTop: 0}, duration);
      return false;
-     })
+     });
 
     var gmarkers=[];
                         //after CLICK ON MARKER map 1
@@ -59,8 +59,10 @@ $(function() {
             marker_lng=($(".lng_id").text());
             id_inzerat = ($(".id_id").text());
             $('#inzerat_part').removeClass('hidden');
+            $('#inzerat_part .position').remove();
+            $('#inzerat_part').append('<div class="position hidden"><p class = "latitude">' + marker_lat + '</p><p class = "longtitude">' + marker_lng +'</p></div>');
             initMap2(marker_lat,marker_lng);
-            init_review_window();
+            init_review_window(marker_lat, marker_lng);
             inti_inzerat_window(id_inzerat);
             anchor_section($anchor);
             event.preventDefault();
@@ -102,7 +104,7 @@ $(function() {
 
     function set_map(){
         // Change this depending on the name of your PHP file
-        downloadUrl("js/pull_markers.php", function(data) {
+        downloadUrl("js/pull_markers_ad.php", function(data) {
             xml = data.responseXML;
             markers = xml.documentElement.getElementsByTagName("marker");
             for (var i = 0; i < markers.length; i++) {
@@ -273,7 +275,7 @@ $(function() {
             type: 'POST',
             url: 'js/inzerat_window.php',
             data: {
-                'id_of_inzerat': value,
+                'id_of_inzerat': value
             },
             success: function(data, status) {
                 // JSON data was received by callback of inzerat_window.php
@@ -333,15 +335,33 @@ $(function() {
     }
 
     // initializing post of street's window
-    function init_review_window() {
-        $(".demo1").bootstrapNews({
-            newsPerPage: 6,
-            autoplay: true,
-            pauseOnHover: true,
-            direction: 'up',
-            newsTickerInterval: 4000, //4sek
-            onToDo: function () {
-                console.log(this);
+    function init_review_window(lat, lng) {
+        $.ajax({
+            type: "POST",
+            url: "js/generate_posts.php", //process to mail
+            data: {	'id' : '2',
+                'lat': lat,
+                'lng' : lng },
+            success: function (msg) {
+                //$lists = json_decode($lists);
+                //$("#alert_div").html(msg);
+                $("#demo").empty();
+                $("#demo").html(msg);
+                // initializing post of street's window
+                $(".demo1").bootstrapNews({
+                    newsPerPage: 6,
+                    autoplay: true,
+                    pauseOnHover: true,
+                    direction: 'up',
+                    newsTickerInterval: 4000, //4sek
+                    onToDo: function () {
+                        console.log(this);
+                    }
+                });
+
+            },
+            error: function () {
+                alert("failure");
             }
         });
     }

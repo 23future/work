@@ -17,122 +17,18 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <style>
-        /*  THiS IS FOR PICTURE GALLERY NEARBY MAP*/
-        /* jssor slider arrow navigator skin 05 css */
-        /*
-        .jssora05l                  (normal)
-        .jssora05r                  (normal)
-        .jssora05l:hover            (normal mouseover)
-        .jssora05r:hover            (normal mouseover)
-        .jssora05l.jssora05ldn      (mousedown)
-        .jssora05r.jssora05rdn      (mousedown)
-        */
-        .jssora05l, .jssora05r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            background: url('img/a17.png') no-repeat;
-            overflow: hidden;
-        }
-        .jssora05l { background-position: -10px -40px; }
-        .jssora05r { background-position: -70px -40px; }
-        .jssora05l:hover { background-position: -130px -40px; }
-        .jssora05r:hover { background-position: -190px -40px; }
-        .jssora05l.jssora05ldn { background-position: -250px -40px; }
-        .jssora05r.jssora05rdn { background-position: -310px -40px; }
 
-        /* jssor slider thumbnail navigator skin 01 css */
-        /*
-        .jssort01 .p            (normal)
-        .jssort01 .p:hover      (normal mouseover)
-        .jssort01 .p.pav        (active)
-        .jssort01 .p.pdn        (mousedown)
-        */
-        .jssort01 .p {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 72px;
-            height: 72px;
-        }
-
-        .jssort01 .t {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .jssort01 .w {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .jssort01 .c {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 68px;
-            height: 68px;
-            border: #000 2px solid;
-            box-sizing: content-box;
-            background: url('img/t01.png') -800px -800px no-repeat;
-            _background: none;
-        }
-
-        .jssort01 .pav .c {
-            top: 2px;
-            _top: 0px;
-            left: 2px;
-            _left: 0px;
-            width: 68px;
-            height: 68px;
-            border: #000 0px solid;
-            _border: #fff 2px solid;
-            background-position: 50% 50%;
-        }
-
-        .jssort01 .p:hover .c {
-            top: 0px;
-            left: 0px;
-            width: 70px;
-            height: 70px;
-            border: #fff 1px solid;
-            background-position: 50% 50%;
-        }
-
-        .jssort01 .p.pdn .c {
-            background-position: 50% 50%;
-            width: 68px;
-            height: 68px;
-            border: #000 2px solid;
-        }
-
-        * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {
-            /* ie quirks mode adjust */
-            width /**/: 72px;
-            height /**/: 72px;
-        }
-
-    </style>
 
     <link href="css/nouislider.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery.auto-complete.css">
+    <!-- jquery slider of AD property in field of map -->
+    <link rel="stylesheet" href="css/jssor_slider.css">
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <?php require_once ("js/pull_from_db.php") ?>
-    <?php require_once ("js/jquery.bootstrap.newsbox.php") ?>
+
 
 </head>
 
@@ -452,30 +348,12 @@
             </div>
         </div>
 
+            <!-- this is part of Review window for selected AD : -->
+            <div class="col-xs-12 col-md-6">
+                <div id="demo">
+                </div>
+            </div>
 
-        <div class="col-xs-12 col-md-6">
-			
-			<div class="panel panel-default">
-					<div class="panel-heading">
-						<span class="glyphicon glyphicon-list-alt"></span><b>Hodnotenie Ulice </b></div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-ls-12">
-        				<!--	<ul class="demo1" style="overflow-y: visible; height: 10px;">   -->
-                                <ul id="demo1_id" class="demo1" style="height: 387px;">
-                                    <li class="news-item">
-
-                                    </li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="panel-footer">
-
-					</div>
-				</div>
-		
-	   </div>
         </div>
       </div>
     </section>
@@ -691,134 +569,157 @@
     </div>
 
 
-    <!-- Modal content , add new post window -->
-    <div class="portfolio-modal modal fade" id="Modal_window" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <!-- http://www.jquery2dotnet.com/ -->
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
+
+    <!-- Modal Save new post -->
+    <div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" id="lineModalLabel">Pridanie Nazoru</h3>
                 </div>
-            </div>
-            <div class="container">
-                <div class="well well-sm">
-                    <div class="row">
-
-                        <div class="col-xs-12">
-                            <h2>Titul prispevku ***</h2>
-                            <small><cite title="Ulica Nejaka, Bratislava">Ulica Nejaka, Bratislava <i class="glyphicon glyphicon-map-marker">
-                            </i></cite></small>
-                            <p>
-                                <br />
-                                <br />
-                            <div class="col-md-4">
-                                <img src="images/man.png" width="180" class="img-circle" />
+                <div class="modal-body">
+                    <!-- Map section for selection of GPS point -->
+                    <div class="col-sx-8 col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div id="map_inzercia_select" style="height: 200px;">
                             </div>
-                                <div class="col-xs-12 col-md-8">
-                                    <p>Toto je miesto pre cele znenie vyjadrenie prispievatela ku ulici , moze byt dlhy ci kratky . Ludia sa tu
-                                        Mozu postazovat ,vyjadrit nazor , stale je tu priestor pre dalsie komenty ,a  teda tento priestor sluzi ako vzorovy .
-                                    </p>
-                                    <br>
+                        </div>
 
-
-                                    <button id="btn-01" type="button" class="btn btn-primary btn-lg outline"><i class="glyphicon glyphicon-thumbs-up"></i>522</button>
-                                    <button id="btn-02" type="button" class="btn btn-primary btn-lg outline"><i class="glyphicon glyphicon-thumbs-down"></i>862</button>
-
-
-                                </div>
-
+                    </div>
+                    <div class="col-sx-8 col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div id="preview"><img class="" src="" /></div>
+                        </div>
+                        <div class="row">
+                            <form id="form_img" method="post" enctype="multipart/form-data">
+                                <input id="uploadImage" type="file" accept="image/*" name="img_file" />
+                                <input id="button" type="submit" value="Upload">
+                            </form>
+                            <div id="err"></div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </div>
-
-    </div>
-
-		<!-- Modal content , add new post window -->
-	<div class="portfolio-modal modal fade" id="Modal_window_add_post" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                                <h2>Pridanie Postrehu</h2>
-
-                            <hr>
-                             <form class="form-horizontal">
-                                <div class="form-group">
-
-                                    <div class="col-sm-12">
-                                    <label for="inputEmail3" >Email<span class="glyphicon glyphicon-pen"></span></label>
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-
-                                    <label for="meno_adder">Zadaj svoje meno / prezyvku</label>
-                                    <input type="text" id="meno_adder" class="form-control" placeholder="Text input">
-                                    <label for="title_post">Ulica</label>
-                                    <input type="text" id="title_post" class="form-control" placeholder="Text input">
-
-
-                                    <label for="post_text">Tvoj postreh z prostredia ulice</label>
-                                    <textarea class="form-control" id="post_text" rows="3"></textarea>
-                                    </div>
+                    <!-- content goes here -->
+                    <form class="contact" name="contact">
+                        <div class="col-sx-8 col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div class="form-group hidden">
+                                    <label for="post_lat">Latitude</label>
+                                    <input type="text" name="lat" class="form-control" id="post_lat" placeholder="latitude">
                                 </div>
-
-                            </form>
-
-                            <form class="form-inline" role="form">
-                                <div class="form-group">
-                                    <label class="control-label">Pohlavie</label>
+                                <div class="form-group hidden">
+                                    <label for="post_lng">Longtitude</label>
+                                    <input type="text" name="lng" class="form-control" id="post_lng" placeholder="longtitude">
                                 </div>
                                 <div class="form-group">
-                                    <div class="radio">
-                                        <label class="radio-inline control-label">
-                                            <input type="radio" id="poh_muz" name="pohlavie" value="Muz" checked="">
-                                            Muz
-                                        </label>
-                                    </div>
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Zadaj svoj email">
                                 </div>
                                 <div class="form-group">
-                                    <div class="radio">
-                                        <label class="radio-inline control-label">
-                                            <input type="radio" id="poh_zena" name="pohlavie" value="Zena" checked="">
-                                            Zena
-                                        </label>
-                                    </div>
+                                    <label for="title">Titulok</label>
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="Zadaj titulok prispevku">
                                 </div>
-
-                            </form>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-default">Pridaj</button>
+                                <div class="form-group">
+                                    <label for="content">Obsah</label>
+                                    <textarea class="form-control" name="content" rows="5" id="content"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio">Muz
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio">Zena
+                                    </label>
                                 </div>
                             </div>
+                        </div>
+                    </form>
 
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" id="save_post" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!-- Modal Eye -  to see All markers of Posts in close surrounding of static one -->
+    <div class="modal fade" id="CircuitModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" id="lineModalLabel">Mapa Recenzii</h3>
+                </div>
+                <div class="modal-body">
+                    <!-- Map section for selection of GPS point -->
+                    <div class="col-sx-8 col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div id="map_circuit_select" style="height: 350px;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-default pull-right" data-dismiss="modal"  role="button">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Post detail, and Up / Down counting -->
+    <div class=" modal fade" id="post_detail" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="id_modal_detail">
+                <-- Content is dynamically generated by php : generete_posts.php and then by modal_rate.php -->
+            </div>
+        </div>
+    </div>
+    <!-- Modal end Post detail -->
+
+
+    <!--MODAL to show up picture in pop up modal -->
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="imagepreview" style="width: 400px; height: 264px;" >
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end  -->
 
 
     <script>
 
     </script>
-    <!-- this part belongs to autocomplete function -->
 
-    <!-- Slider price values -->
+    <!--  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> Slider price values -->
     <script src="js/nouislider.min.js"></script>
+    <!-- bootstrap New's box -->
+    <script src="js/jquery.bootstrap.newsbox.js" type="text/javascript"></script>
     <!-- Google API Map -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL85OyrgDxcrXKAePzPDycPZkC-nilnOc" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL85OyrgDxcrXKAePzPDycPZkC-nilnOc&libraries=geometry" async defer></script>
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/classie.js"></script>
@@ -829,14 +730,15 @@
     <script src="js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+    <script src="js/posts.js" type="text/javascript"></script>
+    <script src="js/freelancer.js" type="text/javascript"></script>
 	<!-- posts bar scrool -->
     <script src="js/jquery.auto-complete.js" type="text/javascript"></script>
     <!-- ajax js -->
     <script src="ajax.js"></script>
     <!-- This demo works with jquery library -->
 
-    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+
     <script type="text/javascript" src="js/jssor.slider.mini.js"></script>
     <!-- use jssor.slider.debug.js instead for debug -->
     <script>
