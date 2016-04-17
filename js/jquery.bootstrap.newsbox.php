@@ -1,4 +1,4 @@
-﻿
+
 <?php require_once('pull_from_db.php'); ?>
 <script>
 /*

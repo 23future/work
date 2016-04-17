@@ -14,7 +14,7 @@ function pull_inzerat_info($id_num) {
     $mysqli->set_charset('utf8');
     }
 
-        $sql = "SELECT id, data ,name , surn, address, cena, vymera, title, phone FROM t_inzerat  WHERE id = '$id_num'";
+        $sql = "SELECT id, data ,name , surn, address, cena, vymera, title, phone FROM t_inzeratTest  WHERE id = '$id_num'";
         //$sql = "INSERT INTO `contacts`(`name`, `phone`, `email`, `city`, `state`, `date`) VALUES ('$name', '$phone', '$email', '$city', '$state', '$date')";
         //$sql = "INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')";
 
