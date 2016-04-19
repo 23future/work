@@ -80,21 +80,21 @@
     <header>
         <div id="header_div" class="container-fluid">
                 <div id="header_row" class="row row_edited">
-                <div class="col-sm-12">
-                    <h1>Ulica / Mestská časť</h1><br>
-                    <!--<form id="form_id" method="post"  class="pure-form"> -->
-                    <form id="form_id" method="post"  class="form-inline">
+                    <div class="col-sm-12">
+                        <h1>Ulica / Mestská časť</h1><br>
+                        <!--<form id="form_id" method="post"  class="pure-form"> -->
+                        <form id="form_id" method="post"  class="form-inline">
                         <a href="#map_section"></a>
                         <div class="input-group col-sm-8 col-lg-offset-2" >
                         <!--<input type="text" id="ulica_enter" class="form-control"  style="width : 100%;"> -->
                         <input id="hero-demo" class="form-control" autofocus type="text" name="street_value" placeholder="Zadaj ulicu / mestskú časť BA ..." style="font-size : 20px;"/>
                         <div class="input-group-btn" style="text-align: left;">
-                            <button id="sub_btn01" class="btn" type="submit" style="background-color: #1abc9c; border-width: 5px; border-color: #1abc9c;"><i class="glyphicon glyphicon-search"></i></button>
+                            <button id="sub_btn01" class="btn" type="submit" style="border-top-right-radius: 9px;border-bottom-right-radius: 9px;  background-color: #1abc9c; border-color: #1abc9c;"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
 				        <!--<input id="press_btn" href="#map_section" type="image"  src="img/white_arrow3_2.png" /> -->
 
-                    </div>
-                </form>
+                        </div>
+                    </form>
 
                 <div id="bonce_arrrow" class="arrow bounce" href="#map_section">
                 </div>
@@ -153,31 +153,30 @@
 	<section id="map_section" class="hidden">
         <div class="container-fluid">
 
-            <div class="col-sx-3">
+            <div class="col-sx-12">
                 <div class="row">
-                    <div class="btn-group btn-group-justified">
                         <div class="btn-group">
-                            <button id="1iz" type="button" class="btn btn-nav" >
+                            <button id="1iz" type="button" class="btn btn-nav " >
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>1-iz byt/Garzonka</p>
+                                <p>1-iz</p>
                             </button>
                         </div>
                         <div class="btn-group">
                             <button id="2iz" type="button" class="btn btn-nav" >
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>2-iz byt</p>
+                                <p>2-iz</p>
                             </button>
                         </div>
                         <div class="btn-group">
                             <button id="3iz" type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>3-iz byt</p>
+                                <p>3-iz</p>
                             </button>
                         </div>
                         <div class="btn-group">
                             <button id="4iz" type="button" class="btn btn-nav">
                                 <span class="glyphicon glyphicon-bed"></span>
-                                <p>4-iz byt</p>
+                                <p>4-iz</p>
                             </button>
                         </div>
                         <div class="btn-group">
@@ -192,7 +191,6 @@
                                 <p>Haly</p>
                             </button>
                         </div>
-                    </div>
                 </div>
             </div>
 
