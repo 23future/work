@@ -44,7 +44,7 @@ function get_detail($id){
         exit;
     } else {
         $mysqli->set_charset('utf8');
-        $query = "SELECT e_mail, data, lat, lng, pos_rate, neg_rate FROM t_reviews where id = ?";
+        $query = "SELECT email, data, lat, lng, pos_rate, neg_rate FROM t_reviews where id = ?";
         //$query = "SELECT data FROM t_reviews where id = ?";
         if($statement = $mysqli->prepare($query)){
             //bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)

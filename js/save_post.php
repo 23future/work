@@ -12,7 +12,7 @@ function get_posts_from_db($email,$data,$gender,$lat,$lng){
     } else {
         $mysqli->set_charset('utf8');
 
-        $query = "INSERT INTO t_reviews (ulica_id,e_mail,data,gender,lat,lng) VALUES (2, ?, ?, ?,?,?)";
+        $query = "INSERT INTO t_reviews (email,data,gender,lat,lng) VALUES (?, ?, ?,?,?)";
         $statement = $mysqli->prepare($query);
 
         //bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)

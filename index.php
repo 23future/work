@@ -66,7 +66,7 @@
                         <a href="#contact">Kontakt</a>
                     </li> -->
                     <li>
-                        <a href="inzercia.php"><i class="glyphicon glyphicon-plus"></i>Inzercia</a>
+                        <a href="http://89.22.98.155/login"><i class="glyphicon glyphicon-plus"></i>Inzercia</a>
                     </li>
 
                 </ul>
