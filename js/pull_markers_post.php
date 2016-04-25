@@ -19,7 +19,7 @@ if (!$db_selected) {
 
 // Select all the rows in the markers table
 
-$query = "SELECT lat,lng FROM t_reviews WHERE 1";
+$query = "SELECT lat,lng,data FROM t_reviews WHERE 1";
 $result = mysql_query($query);
 if (!$result) {
     die('Invalid query: ' . mysql_error());
@@ -33,7 +33,7 @@ while ($row = @mysql_fetch_assoc($result)){
     // ADD TO XML DOCUMENT NODE
     $node = $dom->createElement("marker");
     $newnode = $parnode->appendChild($node);
-    //$newnode->setAttribute("cena",$row['cena']);
+    $newnode->setAttribute("data",$row['data']);
     //$newnode->setAttribute("address", $row['address']);
     $newnode->setAttribute("lat", $row['lat']);
     $newnode->setAttribute("lng", $row['lng']);

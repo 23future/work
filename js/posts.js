@@ -1,21 +1,66 @@
 $(function(){
-    //$(".id_post").click(function () {
     $("#demo").on('click', ".id_post", function(){
-        // $("#id_modal_detail").modal('show');
-
         var id = $(this).attr("name");
-        alert("ID:"+id);
         $.ajax({
-            //type: "POST",
             type : "post",
             url: "js/modal_rate.php", //process to mail
             data: { 'id': id },
-            success: function(msg){
-                //console.log(msg[1]);
-                // $("#id_modal_detail").modal('show');
+            success: function(data){
+                var ajaxData = JSON.parse(data);
+                obj = ajaxData['post'];
+
+
+                cont = '<div class="modal-content"> \
+                    <div class="modal-header"> \
+                <div class="close-modal" data-dismiss="modal"> \
+                <div class="lr"> \
+                <div class="rl"> \
+                </div> \
+                </div> \
+                </div><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> \
+                <h3 class="modal-title" id="lineModalLabel">Detail Prispevku</h3> \
+                </div> \
+                <div class="modal-body"> \
+                <!-- Map section for selection of GPS point --> \
+                <div class="col-sx-8 col-md-10 col-md-offset-1"> \
+                <h2>Titul prispevku ***</h2> \
+                <small><cite title="Ulica Nejaka, Bratislava">';
+
+
+                //$('#id_modal_detail').append('<div class="modal-body"></div>');
+                $(obj).each(function (i, val) {
+                    //console.log("image path:"+val.image_url);
+                    cont += '<p>' + val.data + '</p>';
+                });
+                cont += '<i class="glyphicon glyphicon - map - marker"> \
+                    </i></cite></small> \
+                    </div><div class="row"><div class=\"col-xs-12\"><br/><br/><div class="col-md-4">';
+
+                obj = ajaxData['images'];
+                $(obj).each(function (i, val) {
+                    //console.log("image path:"+val.image_url);
+                    cont = cont + '<a href='+val.image_url+' title='+val.image_url+' data-gallery><img src='+val.image_url+' alt='+val.image_url+' class="img-thumbnail" style="width: 100px;height: 100px;"></a>';
+                });
+
+                cont += '</div> \
+                    <div class="col-xs-12 col-md-8"> \
+                <p>detail popis bla bla ..</p> \
+                </div> \
+                </div> \
+                </div> \
+                </div> \
+                <div class="modal-footer"> \
+                <button id="btn-01" type="button" class="btn btn-primary  outline agree"><i class="glyphicon glyphicon-thumbs-up"></i>Suhlasim s tym</button> \
+                <button id="btn-02" type="button" class="btn btn-primary  outline disagree"><i class="glyphicon glyphicon-thumbs-down"></i>Neshuhlasim</button> \
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal"  role="button">Close</button> \
+                </div> \
+                </div>';
+
+
+                //<img src=\"images/1.png\" width=\"180\" class=\"img-circle\" />
+
                 $('#id_modal_detail').empty();
-                $('#id_modal_detail').html(msg);
-                $('#id_modal_detail').append("<i>"+ id +"</i>");
+                $('#id_modal_detail').append(cont);
             },
             error: function(){
                 alert("failure");
@@ -229,7 +274,7 @@ $(function(){
                     console.log("Distance : "+ distance );
                     //console.log(computeDistanceBetween(point_static, point));
                     //html = "<span class='id_id'>"+markers[i].getAttribute('id')+"</span><span class='lat_id'>"+markers[i].getAttribute('lat')+"</span><span class='lng_id'>"+markers[i].getAttribute("lng")+"</span><b>" + cena + "</b> <br/>" + address + "<br/><a href='#inzerat_part'>Ukaz mi inzerat</a>";
-                    html = "<p>test</p>";
+                    html = "<p style='font-size: 10px; '>"+markers[i].getAttribute("data")+"</p>";
                     //icon = customIcons[type] || {};
                     marker = new google.maps.Marker({
                         map: map2,

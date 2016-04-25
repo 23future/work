@@ -18,6 +18,9 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
+    <!-- Custom CSS for Gallery-->
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
 
     <link href="css/nouislider.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery.auto-complete.css">
@@ -322,6 +325,9 @@
 
                             <div id="map2"></div>
                         </figure>
+                    </div>
+                    <div class="col-xs-12 links">
+
                     </div>
                     <div class="col-xs-12">
                         <textarea readonly id="id_inzerat_body" class="form-control" rows="8"></textarea>
@@ -649,6 +655,42 @@
         </div>
     </div>
 
+    <!-- Modal Content for Gallery  -->
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body next"></div>
+                    <div class="modal-footer">
+                        <!--   <button type="button" class="btn btn-default pull-left prev">
+                               <i class="glyphicon glyphicon-chevron-left"></i>
+                               Previous
+                           </button>
+                           <button type="button" class="btn btn-primary next">
+                               Next
+                               <i class="glyphicon glyphicon-chevron-right"></i>
+                           </button>
+                           -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal Eye -  to see All markers of Posts in close surrounding of static one -->
     <div class="modal fade" id="CircuitModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -722,6 +764,10 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Gallery and Modal to see Pictures uploaded-->
+    <script src="js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.min.js"></script>
 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>

@@ -52,7 +52,7 @@ $(function() {
      });
 
     var gmarkers=[];
-                        //after CLICK ON MARKER map 1
+    //after CLICK ON MARKER map 1
         $('body').on('click', '.gm-style-iw a', function(event) {
             $anchor = $(this);
             marker_lat=($(".lat_id").text());
@@ -273,12 +273,40 @@ $(function() {
 
         $.ajax({
             type: 'POST',
+            //dataType : 'json',
             url: 'js/inzerat_window.php',
             data: {
                 'id_of_inzerat': value
             },
             success: function(data, status) {
                 // JSON data was received by callback of inzerat_window.php
+                var ajaxData = JSON.parse(data);
+
+                if (ajaxData['ad'] != null){
+                    $(ajaxData['ad']).each(function (i, val) {
+                        console.log("image:" + val.data);
+
+                        $('#id_inzerat').html("<strong>Inzerát #</strong>" + val.id );
+                        $('#id_zadavatel').html("<strong>Zadavatel: </strong>" + val.name);
+                        $('#id_inzerat_body').html(val.data);
+                        console.log("cena"+val.cena +"vymera:"+ val.vymera);
+                        inzerat_cena = $('#id_inzerat_cena');
+                        inzerat_cena.html("<strong>"+getRepString(val.cena) +"</strong>");
+                        inzerat_cena.tooltip('show').attr('data-original-title', val.cena);
+                        inzerat_vymera =$('#id_inzerat_vymera');
+                        inzerat_vymera.html("<strong>"+getRepString(val.vymera) +"</strong>");
+                        inzerat_vymera.tooltip('show').attr('data-original-title', val.vymera);
+                    })
+                }
+                $('.links').empty();  // to make sure gallery is clear
+                if (ajaxData['images'] != null){
+                    $(ajaxData['images']).each(function (i, val) {
+                        console.log("image:" + val.image_url);
+                            cont = ' <a href=' + val.image_url + ' title=' + val.image_url + ' data-gallery> <img src=' + val.image_url + ' alt=' + val.image_url + ' class="img-thumbnail" style="width: 100px;height: 100px;"></a>';
+                            $('.links').append(cont);
+                    })
+                }
+                /*
                 $('#id_inzerat').html("<strong>Inzerát #</strong>" + data.id );
                 $('#id_zadavatel').html("<strong>Zadavatel: </strong>" + data.name);
                 $('#id_inzerat_body').html(data.data);
@@ -286,11 +314,9 @@ $(function() {
                 inzerat_cena = $('#id_inzerat_cena');
                 inzerat_cena.html("<strong>"+getRepString(data.cena) +"</strong>");
                 inzerat_cena.tooltip('show').attr('data-original-title', data.cena);
-
-
                 inzerat_vymera =$('#id_inzerat_vymera');
                 inzerat_vymera.html("<strong>"+getRepString(data.vymera) +"</strong>");
-                inzerat_vymera.tooltip('show').attr('data-original-title', data.vymera);
+                inzerat_vymera.tooltip('show').attr('data-original-title', data.vymera); */
             },
             error: function(xhr, desc, err) {
                 console.log(xhr);

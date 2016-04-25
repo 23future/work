@@ -1,6 +1,7 @@
 <?php
 /*
 author: beepin.eu
+
 CREATE TABLE IF NOT EXISTS t_post_img (
          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         post_id  VARCHAR(6) DEFAULT NULL,
@@ -14,7 +15,7 @@ $mysqli = connect_to_db();
 if(isset($_FILES['img_file'])){
 
     $img_file = $_FILES["img_file"]["name"];
-    $folderName = "uploads/";
+    $folderName = "/storage/post_img/";
     //$folderName = "/tmp/";
     $validExt = array("jpg", "png", "jpeg", "bmp", "gif");
     $msg ="";
