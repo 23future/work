@@ -1,7 +1,7 @@
 <?php
 require_once 'db_connection.php';
 
-function get_posts_from_db($email,$data,$gender,$lat,$lng){
+function get_posts_from_db($email,$data,$gender,$nickname,$lat,$lng){
     $mysqli = connect_to_db();
     $msg = "";
     //echo "output: ". $email . $data . $gender;
@@ -12,11 +12,11 @@ function get_posts_from_db($email,$data,$gender,$lat,$lng){
     } else {
         $mysqli->set_charset('utf8');
 
-        $query = "INSERT INTO t_reviews (email,data,gender,lat,lng) VALUES (?, ?, ?,?,?)";
+        $query = "INSERT INTO t_reviews (email,data,gender,nickname, lat,lng) VALUES (?,?,?,?,?,?)";
         $statement = $mysqli->prepare($query);
 
         //bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
-        $statement->bind_param('sssss', $email, $data, $gender,$lat,$lng);
+        $statement->bind_param('ssssss', $email, $data, $gender,$nickname,$lat,$lng);
 
         //execute query
         if($statement->execute()){
@@ -29,6 +29,6 @@ function get_posts_from_db($email,$data,$gender,$lat,$lng){
     $mysqli->close();
     echo $msg;
 }
-get_posts_from_db($_POST['email'],$_POST['content'],$_POST['optradio'],$_POST['lat'],$_POST['lng']);
+get_posts_from_db($_POST['email'],$_POST['content'],$_POST['gender'],$_POST['nickname'],$_POST['lat'],$_POST['lng']);
 
 ?>

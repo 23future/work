@@ -57,15 +57,27 @@ function get_posts_from_db($id){
     foreach ($a_json as $list) {
 
         if ((distance_haversine($list['lat'], $list['lng'], $_POST['lat'], $_POST['lng'])) < 0.5) {   // this is setting for distance selection
-            $str = substr($list['data'], 0, 45);
-            $return .= "<li class=\"news-item\">
+            //$str = substr($list['data'], 0, 45);
+            $str = substr($list['title'], 0, 30);
+            if ($list['gender'] == "M") {
+                $return .= "<li class=\"news-item\">
 										<table cellpadding=\"4\">
 											<tr>
-												<td><img src=\"images/1.png\" width=\"60\" class=\"img-circle\" /></td><td>" . $list['id'] . "</td>
-												<td>" . $str . "<a data-toggle=\"modal\" data-target=\"#post_detail\" class='id_post' name=" . $list['id'] . "> viac...</a></td>
+												<td><img src=\"images/man.png\" width=\"60\" class=\"img-circle\" /></td><td>" . $list['id'] . "&nbsp</td>
+												<td><strong style=\"text-transform: uppercase;\"> ".$list['nickname']."</strong>&nbsp" . $str . "<a data-toggle=\"modal\" data-target=\"#post_detail\" class='id_post' name=" . $list['id'] . "> viac...</a></td>
 											</tr>
 										</table>
 									</li>";
+            }else {
+                $return .= "<li class=\"news-item\">
+										<table cellpadding=\"4\">
+											<tr>
+												<td><img src=\"images/woman.png\" width=\"60\" class=\"img-circle\" /></td><td>" . $list['id'] . "&nbsp</td>
+												<td><strong style=\"text-transform: uppercase;\"> ".$list['nickname']."</strong>&nbsp" . $str . "<a data-toggle=\"modal\" data-target=\"#post_detail\" class='id_post' name=" . $list['id'] . "> viac...</a></td>
+											</tr>
+										</table>
+									</li>";
+            }
             }
         }
 

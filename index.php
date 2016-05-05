@@ -64,10 +64,9 @@
                     <li class="page-scroll">
                         <a href="#step-by-step">O Nas</a>
                     </li>
-                    <!--
                     <li class="page-scroll">
                         <a href="#contact">Kontakt</a>
-                    </li> -->
+                    </li>
                     <li>
                         <a href="http://89.22.98.155/login"><i class="glyphicon glyphicon-plus"></i>Inzercia</a>
                     </li>
@@ -295,10 +294,22 @@
                         </div>
 
                     </div>
-                    <div class="row">
-                        <a href="#">Cena: 180 000 Eur</a>
-                        <textarea readonly class="form-control" rows="8">Data : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum </textarea>
-
+                    <div class="row" style="border-color: #0A246A">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <a href="#">Viac...</a></p>
+                        <div class="col-xs-12 divider text-center">
+                            <div class="col-xs-12 col-sm-4 emphasis">
+                                <h2  data-toggle="tooltip" data-trigger="hover" data-placement="top" ><strong>180K</strong></h2>
+                                <p><small>Eur</small></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 emphasis">
+                                <h2  data-toggle="tooltip" data-trigger="hover" data-placement="top" ><strong>78</strong></h2>
+                                <p><small>m2</small></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 emphasis">
+                                <br>
+                                <button  type="button" class="btn btn-primary" href="#map_section"><i class="glyphicon glyphicon-eye-open"></i>Detail Ponuky</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -361,6 +372,35 @@
         </div>
       </div>
     </section>
+
+    <section>
+        <div class="row">
+        <div class="col-md-4 col-md-push-4">
+            <div class="alert alert-success">Praha, Ceska Republika</div>
+            <img class="img-responsive img-circle" src="img/prag.jpg" alt="Praha , Hlavne mesto Ceska republika">
+        </div>
+
+        <div class="col-md-4 col-md-pull-4 ">
+            <div class="alert alert-success">Bratislava, Slovensko</div>
+            <img class="img-responsive img-circle" src="img/bratislava.jpg" alt="Bratislava , Hlavne mesto Slovensko">
+        </div>
+
+        <div class="col-md-4">
+            <div class="alert alert-success">Nitra, Slovensko</div>
+            <img class="img-responsive img-circle" src="img/nitra.jpg" alt="Nitra , Slovensko">
+        </div>
+        </div>
+    </section>
+
+    <div class="container-fluid">
+        <div class="row" style="background-color: #2c3e50; height: 400px;">
+                <div class="bg-image" style="color: white;text-align: center;vertical-align: middle;line-height: 90px;">
+
+                    <h1>This is centered text.</h1>
+                </div>
+        </div>
+    </div>
+
     <!-- section for About Project -->
     <section id="step-by-step" style="background:#efefe9;">
         <div class="container-fluid">
@@ -459,7 +499,7 @@
                     <hr class="star-primary">
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="email_form">
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
@@ -597,8 +637,12 @@
                         </div>
                         <div class="row">
                             <form id="form_img" method="post" enctype="multipart/form-data">
-                                <input id="uploadImage" type="file" accept="image/*" name="img_file" />
-                                <input id="button" type="submit" value="Upload">
+                                <div class="col-md-6 col-sx-12">
+                                    <input id="uploadImage" type="file" accept="image/*" name="img_file" />
+                                </div>
+                                <div class="col-md-6 col-sx-12">
+                                    <input id="button" type="submit" value="Upload">
+                                </div>
                             </form>
                             <div id="err"></div>
                         </div>
@@ -618,11 +662,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
+                                    <i>(tvoj email sa nezobrazi iným používateľom)</i>
                                     <input type="email" name="email" class="form-control" id="email" placeholder="Zadaj svoj email">
                                 </div>
                                 <div class="form-group">
+                                    <label for="nickname">Nickname</label>
+                                    <input type="email" name="nickname" class="form-control" id="nickname" placeholder="Zadaj ľubovolnú prezývku">
+                                </div>
+                                <div class="form-group">
                                     <label for="title">Titulok</label>
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="Zadaj titulok prispevku">
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="Zadaj titulok príspevku">
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Obsah</label>
@@ -630,10 +679,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="radio-inline">
-                                        <input type="radio" name="optradio">Muz
+                                        <input type="radio" name="gender" value="M">Muz
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="optradio">Zena
+                                        <input type="radio" name="gender" value="W">Zena
                                     </label>
                                 </div>
                             </div>
@@ -647,7 +696,7 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="button" id="save_post" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                            <button type="button" id="save_post" class="btn btn-default " data-action="save" role="button">Save</button>
                         </div>
                     </div>
                 </div>
@@ -708,6 +757,7 @@
                             </div>
                         </div>
                         <div class="row">
+                            <label><input  id="show_all" type="checkbox" value="0">Ukaz vsetky recenzie</label>
                             <button type="button" class="btn btn-default pull-right" data-dismiss="modal"  role="button">Close</button>
                         </div>
                     </div>

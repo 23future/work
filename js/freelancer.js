@@ -223,8 +223,7 @@ $(function() {
                     // Starting at 500, step the value by 500,
                     // until 4000 is reached. From there, step by 1000.
                     'min': [ 0, 1000 ],
-
-                    '50%': [ 250000, 10000 ],
+                    '75%': [ 250000, 10000 ],
                     'max': [ 500000 ]
                 }
             });
@@ -259,14 +258,29 @@ $(function() {
     // this is for selectors of big map , 1iz, 2iz,3iz
         var activeEl = "";
         var items = $('.btn-nav');
-        $( items[activeEl] ).addClass('active');
+       // var num = items.length;
+        //while (num--){
+         //   $( items[num] ).addClass('active');
+        //}
         items.click(function() {
-            $( items[activeEl] ).removeClass('active');
-            $( this ).addClass('active');
-            activeEl = $( ".btn-nav" ).index( this );
-            //Call a selector function
-            SelectMarkers($(this).attr('id'));
+            if ($(this).hasClass("active")){
+                //alert("has active class");
+                $(this).removeClass('active');
+                //$( items[activeEl] ).removeClass('active');
+                //activeEl = $( ".btn-nav" ).index( this );
+               // $( this ).removeClass("active");
+                SelectMarkers('0');
+            }else{
+                //alert("one: "+items.length + "sec: "+$(this).attr('id'));
+                $( items[activeEl] ).removeClass('active');
+                $( this ).addClass('active');
+                activeEl = $( ".btn-nav" ).index( this );
+                //Call a selector function
+                SelectMarkers($(this).attr('id'));
+            }
         });
+
+    //$('#tab a[href="#client_tab2"]').tab('show');
 
 
     function inti_inzerat_window(value) {
@@ -403,7 +417,7 @@ $(function() {
         val_max = val_max.replace('k', '000');
         val_max = val_max.replace(/[^\d.-]/g, '');
         val_max = Number(val_max);
-        console.log("low" + val_low + " " +"height"+val_max);
+        //console.log("low" + val_low + " " +"height"+val_max);
         if (category != "0") {
             for (i = 0; i < gmarkers.length; i++) {
                 marker = gmarkers[i];
@@ -461,6 +475,8 @@ $(function() {
 
         }
     }
+
+
 
 
 });

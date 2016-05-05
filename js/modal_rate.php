@@ -15,7 +15,7 @@ if (isset($_POST['id'])) {
         exit;
     } else {
         $mysqli->set_charset('utf8');
-        $query = "SELECT email, data, lat, lng, cost FROM t_reviews where id = $id";
+        $query = "SELECT email, data, title, gender, nickname, lat, lng, cost FROM t_reviews where id = $id";
         $query_images = "SELECT image_url FROM `t_post_img` WHERE post_id='$id' ";
 
         if ($result1 = $mysqli->query($query))

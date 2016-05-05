@@ -1,4 +1,6 @@
 $(function(){
+    var markers = "";
+
     $("#demo").on('click', ".id_post", function(){
         var id = $(this).attr("name");
         $.ajax({
@@ -10,7 +12,7 @@ $(function(){
                 obj = ajaxData['post'];
 
 
-                cont = '<div class="modal-content"> \
+                cont = '<i class="hidden">'+ id +'</i><div class="modal-content"> \
                     <div class="modal-header"> \
                 <div class="close-modal" data-dismiss="modal"> \
                 <div class="lr"> \
@@ -22,18 +24,14 @@ $(function(){
                 </div> \
                 <div class="modal-body"> \
                 <!-- Map section for selection of GPS point --> \
-                <div class="col-sx-8 col-md-10 col-md-offset-1"> \
-                <h2>Titul prispevku ***</h2> \
-                <small><cite title="Ulica Nejaka, Bratislava">';
-
+                <div class="col-sx-8 col-md-10 col-md-offset-1"> ';
 
                 //$('#id_modal_detail').append('<div class="modal-body"></div>');
                 $(obj).each(function (i, val) {
                     //console.log("image path:"+val.image_url);
-                    cont += '<p>' + val.data + '</p>';
+                    cont += '<h2>'+ val.title +'</h2><p>' + val.data + '</p>';
                 });
-                cont += '<i class="glyphicon glyphicon - map - marker"> \
-                    </i></cite></small> \
+                cont += '<i class="glyphicon glyphicon - map - marker"></i> \
                     </div><div class="row"><div class=\"col-xs-12\"><br/><br/><div class="col-md-4">';
 
                 obj = ajaxData['images'];
@@ -43,8 +41,7 @@ $(function(){
                 });
 
                 cont += '</div> \
-                    <div class="col-xs-12 col-md-8"> \
-                <p>detail popis bla bla ..</p> \
+                    <div class="col-xs-12 col-md-8"><div class="voted"></div> \
                 </div> \
                 </div> \
                 </div> \
@@ -79,7 +76,9 @@ $(function(){
             url: "js/upgrade_downgrade.php", //process to mail
             data: { 'id_up': id },
             success: function(msg){
-
+                $("#id_modal_detail .agree").addClass("hidden");
+                $("#id_modal_detail .disagree").addClass("hidden");
+                $("#id_modal_detail .modal-footer").append("<p>Ďakujeme za Váš názor !</p>");
             },
             error: function(){
                 alert("failure");
@@ -99,7 +98,9 @@ $(function(){
             url: "js/upgrade_downgrade.php", //process to mail
             data: { 'id_down': id },
             success: function(msg){
-
+                $("#id_modal_detail .agree").addClass("hidden");
+                $("#id_modal_detail .disagree").addClass("hidden");
+                $("#id_modal_detail .modal-footer").append("<p>Ďakujeme za Váš názor !</p>");
             },
             error: function(){
                 alert("failure");
@@ -236,9 +237,12 @@ $(function(){
                 markersArray.length = 0;
             }
         });
-        // this is EYE MODAL , to show all posts marked on map where they belong to
-        $('#CircuitModal').on('shown.bs.modal', function (e) {
-            markersArray = [];
+
+
+        function LoadRadiusMarkers(){
+            markers = "";
+            //to make default unchecked : show all
+            $('#show_all').removeAttr("checked");
             point_static = new google.maps.LatLng(
                 $('#inzerat_part').find('.latitude').text(),
                 $('#inzerat_part').find('.longtitude').text());
@@ -252,11 +256,11 @@ $(function(){
                 mapTypeId: 'roadmap'
             });
 
-            var infoWindow = new google.maps.InfoWindow;
+            infoWindow = new google.maps.InfoWindow;
             // Change this depending on the name of your PHP file
             downloadUrl("js/pull_markers_post.php", function(data) {
-                var xml = data.responseXML;
-                var markers = xml.documentElement.getElementsByTagName("marker");
+                xml = data.responseXML;
+                markers = xml.documentElement.getElementsByTagName("marker");
                 marker = new google.maps.Marker({
                     map: map2,
                     position: point_static,
@@ -289,11 +293,18 @@ $(function(){
                         marker.setVisible(false);
                     }
 
-                    //gmarkers.push(marker);
+                    //markers.push(marker);
                     bindInfoWindow(marker, map2, infoWindow, html);
                 }
             });
 
+        }
+
+        // this is EYE MODAL , to show all posts marked on map where they belong to
+        $('#CircuitModal').on('shown.bs.modal', function (e) {
+
+            LoadRadiusMarkers();
+        });
             function bindInfoWindow(marker, map, infoWindow, html) {
                 google.maps.event.addListener(marker, 'click', function() {
                     infoWindow.setContent(html);
@@ -320,7 +331,7 @@ $(function(){
 
             function doNothing() {}
 
-        });
+
 
     $("#form_img").on('submit',(function(e) {
         e.preventDefault();
@@ -362,4 +373,59 @@ $(function(){
         $('#imagepreview').attr('src', $('#preview').find('a').attr('title')); // here asign the image to the modal when the user click the enlarge link
         $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
     });
+
+    $('input[type="checkbox"]').click(function(){
+
+        if($(this).prop("checked") == true){
+
+            alert("Checkbox is checked.");
+            point_static = new google.maps.LatLng(
+                $('#inzerat_part').find('.latitude').text(),
+                $('#inzerat_part').find('.longtitude').text());
+            console.log("lat:lng="+$('#inzerat_part').find('.latitude').text() + "/ " + $('#inzerat_part').find('.longtitude').text());
+            //Creating map num#3 for creating
+            map2 = new google.maps.Map(document.getElementById("map_circuit_select"), {
+                //center: new google.maps.LatLng(48.158186, 17.130042),
+                center : point_static,
+                disableDoubleClickZoom: true,
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+
+            infoWindow = new google.maps.InfoWindow;
+            // Change this depending on the name of your PHP file
+            marker = new google.maps.Marker({
+                map: map2,
+                position: point_static,
+                //category : type
+                icon : "images/marker-yellow.png"
+            });
+            for (var i = 0; i < markers.length; i++) {
+                point = new google.maps.LatLng(
+                    parseFloat(markers[i].getAttribute("lat")),
+                    parseFloat(markers[i].getAttribute("lng")));
+                html = "<p style='font-size: 10px; '>"+markers[i].getAttribute("data")+"</p>";
+                //icon = customIcons[type] || {};
+                marker = new google.maps.Marker({
+                    map: map2,
+                    position: point
+                    //category : type
+                    //icon : "images/map-marker-house.png"
+                });
+                marker.setVisible(true);
+                bindInfoWindow(marker, map2, infoWindow, html);
+            }
+
+
+        }
+
+        else if($(this).prop("checked") == false){
+
+            alert("Checkbox is unchecked.");
+            LoadRadiusMarkers();
+
+        }
+
+    });
+
 });
