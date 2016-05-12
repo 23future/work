@@ -336,7 +336,8 @@ $(function(){
     $("#form_img").on('submit',(function(e) {
         e.preventDefault();
         $.ajax({
-            url: "upload_image.php",
+            //url: "upload_image.php",
+            url : "save_image.php",
             type: "POST",
             data:  new FormData(this),
             contentType: false,
@@ -357,7 +358,9 @@ $(function(){
                 else
                 {
                     // view uploaded file.
-                    $("#preview").html(data).fadeIn();
+                    $('#post_img').val(data);
+                    body = "<a href='#' title=" +data + "><img src="+data +" alt="+data +" class='img-thumbnail imageresource' style='width: 100px;height: 100px;'></a>";
+                    $("#preview").html(body).fadeIn();
                     $("#form_img")[0].reset();
                 }
             },
@@ -378,7 +381,6 @@ $(function(){
 
         if($(this).prop("checked") == true){
 
-            alert("Checkbox is checked.");
             point_static = new google.maps.LatLng(
                 $('#inzerat_part').find('.latitude').text(),
                 $('#inzerat_part').find('.longtitude').text());
@@ -416,12 +418,10 @@ $(function(){
                 bindInfoWindow(marker, map2, infoWindow, html);
             }
 
-
         }
 
         else if($(this).prop("checked") == false){
 
-            alert("Checkbox is unchecked.");
             LoadRadiusMarkers();
 
         }

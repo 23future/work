@@ -633,7 +633,7 @@
                     </div>
                     <div class="col-sx-8 col-md-10 col-md-offset-1">
                         <div class="row">
-                            <div id="preview"><img class="" src="" /></div>
+                            <div id="preview"><img class="hidden" src="" /></div>
                         </div>
                         <div class="row">
                             <form id="form_img" method="post" enctype="multipart/form-data">
@@ -641,7 +641,7 @@
                                     <input id="uploadImage" type="file" accept="image/*" name="img_file" />
                                 </div>
                                 <div class="col-md-6 col-sx-12">
-                                    <input id="button" type="submit" value="Upload">
+                                    <input id="button" type="submit" class="btn btn-default" value="Upload">
                                 </div>
                             </form>
                             <div id="err"></div>
@@ -652,6 +652,10 @@
                     <form class="contact" name="contact">
                         <div class="col-sx-8 col-md-10 col-md-offset-1">
                             <div class="row">
+                                <div class="form-group hidden">
+                                    <label for="post_img">Latitude</label>
+                                    <input type="text" name="img" class="form-control" id="post_img" placeholder="path">
+                                </div>
                                 <div class="form-group hidden">
                                     <label for="post_lat">Latitude</label>
                                     <input type="text" name="lat" class="form-control" id="post_lat" placeholder="latitude">
